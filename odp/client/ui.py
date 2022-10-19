@@ -5,7 +5,7 @@ from typing import Optional
 
 import requests
 from authlib.integrations.flask_client import OAuth
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, url_for
 from flask_login import current_user, login_user, logout_user
 from redis import Redis
 
@@ -95,45 +95,46 @@ class ODPUIClient(ODPClient):
             active=True,  # we'll only get to this point if the user is active
         )
 
-        self.cache.hset(self._token_key(user_id), mapping=token)
-        self.cache.set(self._user_key(user_id), json.dumps(asdict(localuser)))
+        self.cache.hset(self._cache_key(user_id, 'token'), mapping=token)
+        self.cache.set(self._cache_key(user_id, 'user'), json.dumps(asdict(localuser)))
 
         login_user(localuser)
 
     def logout_redirect(self, redirect_uri):
         """Return a redirect to the Hydra endsession endpoint."""
-        token = self.oauth.fetch_token('hydra')
-        state_val = secrets.token_urlsafe()
-        self.cache.set(self._state_key(), state_val, ex=10)
-        url = f'{self.hydra_url}/oauth2/sessions/logout' \
-              f'?id_token_hint={token.get("id_token")}' \
-              f'&post_logout_redirect_uri={redirect_uri}' \
-              f'&state={state_val}'
-        return redirect(url)
+        if user_id := current_user.get_id():
+            token = self.oauth.fetch_token('hydra')
+            state_val = secrets.token_urlsafe()
+            self.cache.set(self._cache_key(user_id, 'state'), state_val, ex=10)
+            url = f'{self.hydra_url}/oauth2/sessions/logout' \
+                  f'?id_token_hint={token.get("id_token")}' \
+                  f'&post_logout_redirect_uri={redirect_uri}' \
+                  f'&state={state_val}'
+
+            return redirect(url)
+
+        return redirect(url_for('home.index'))
 
     def logout_callback(self):
         """Log the user out."""
-        state_val = request.args.get('state')
-        if state_val == self.cache.get(key := self._state_key()):
-            logout_user()
-            self.cache.delete(key)
+        if user_id := current_user.get_id():
+            state_val = request.args.get('state')
+            if state_val == self.cache.get(key := self._cache_key(user_id, 'state')):
+                logout_user()
+                self.cache.delete(key)
 
     def get_user(self, user_id):
         """Return the cached user object."""
-        if serialized_user := self.cache.get(self._user_key(user_id)):
+        if serialized_user := self.cache.get(self._cache_key(user_id, 'user')):
             return LocalUser(**json.loads(serialized_user))
 
-    def _state_key(self):
-        return f'{self.__class__.__name__}.{self.client_id}.{current_user.id}.state'
-
-    def _token_key(self, user_id):
-        return f'{self.__class__.__name__}.{self.client_id}.{user_id}.token'
-
-    def _user_key(self, user_id):
-        return f'{self.__class__.__name__}.{self.client_id}.{user_id}.user'
+    def _cache_key(self, user_id, key):
+        return f'{self.__class__.__name__}.{self.client_id}.{user_id}.{key}'
 
     def _fetch_token(self, hydra):
-        return self.cache.hgetall(self._token_key(current_user.id))
+        if user_id := current_user.get_id():
+            return self.cache.hgetall(self._cache_key(user_id, 'token'))
 
     def _update_token(self, hydra, token, refresh_token=None, access_token=None):
-        self.cache.hset(self._token_key(current_user.id), mapping=token)
+        if user_id := current_user.get_id():
+            self.cache.hset(self._cache_key(user_id, 'token'), mapping=token)
