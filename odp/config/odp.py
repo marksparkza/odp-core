@@ -76,23 +76,6 @@ class ODPUIConfig(BaseConfig):
     }
 
 
-class ODPCLIAdminConfig(BaseConfig, OAuth2ClientConfigMixin):
-    class Config:
-        env_prefix = 'ODP_CLI_ADMIN_'
-
-
-class ODPCLIPublicConfig(BaseConfig, OAuth2ClientConfigMixin):
-    class Config:
-        env_prefix = 'ODP_CLI_PUBLIC_'
-
-
-class ODPCLIConfig(BaseConfig):
-    _subconfig = {
-        'ADMIN': ODPCLIAdminConfig,
-        'PUBLIC': ODPCLIPublicConfig,
-    }
-
-
 class ODPIdentityConfig(BaseConfig):
     class Config:
         env_prefix = 'ODP_IDENTITY_'
@@ -124,7 +107,6 @@ class ODPConfig(BaseConfig):
         'API': ODPAPIConfig,
         'DB': ODPDBConfig,
         'UI': ODPUIConfig,
-        'CLI': ODPCLIConfig,
         'IDENTITY': ODPIdentityConfig,
         'MAIL': ODPMailConfig,
     }
