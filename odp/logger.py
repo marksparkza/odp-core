@@ -3,7 +3,7 @@ import logging
 from odp.config import config
 
 
-def init_logger():
+def initialize():
     """Configure logging globally. Console (stderr) output
     suffices for both local dev and containerized services."""
     rootlogger = logging.getLogger()
