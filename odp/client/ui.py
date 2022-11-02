@@ -64,13 +64,10 @@ class ODPUIClient(ODPClient):
         )
         self.oauth.register(
             name='hydra',
-            access_token_url=f'{hydra_url}/oauth2/token',
-            authorize_url=f'{hydra_url}/oauth2/auth',
-            userinfo_endpoint=f'{hydra_url}/userinfo',
-            server_metadata_url=f'{hydra_url}/.well-known/openid-configuration',
             client_id=client_id,
             client_secret=client_secret,
             client_kwargs={'scope': ' '.join(scope)},
+            server_metadata_url=f'{hydra_url}/.well-known/openid-configuration',
         )
 
     def _send_request(self, method: str, url: str, data: dict, params: dict) -> requests.Response:
