@@ -67,6 +67,7 @@ class ODPUIClient(ODPClient):
             access_token_url=f'{hydra_url}/oauth2/token',
             authorize_url=f'{hydra_url}/oauth2/auth',
             userinfo_endpoint=f'{hydra_url}/userinfo',
+            server_metadata_url=f'{hydra_url}/.well-known/openid-configuration',
             client_id=client_id,
             client_secret=client_secret,
             client_kwargs={'scope': ' '.join(scope)},
@@ -83,7 +84,7 @@ class ODPUIClient(ODPClient):
     def login_callback(self):
         """Cache the user object and user token, and log the user in locally."""
         token = self.oauth.hydra.authorize_access_token()
-        userinfo = self.oauth.hydra.userinfo()
+        userinfo = token.pop('userinfo')
 
         localuser = LocalUser(
             id=(user_id := userinfo['sub']),
