@@ -9,7 +9,7 @@ from flask import Flask, redirect, request, url_for
 from flask_login import current_user, login_user, logout_user
 from redis import Redis
 
-from odp.client import ODPClient
+from odp.client import ODPBaseClient
 
 
 @dataclass
@@ -40,7 +40,7 @@ class LocalUser:
         return self.id
 
 
-class ODPUIClient(ODPClient):
+class ODPUIClient(ODPBaseClient):
     """ODP client for a Flask app, providing signup, login and logout,
     and API access with a logged in user's access token."""
 
