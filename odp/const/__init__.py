@@ -45,6 +45,12 @@ class ODPScope(str, Enum):
     VOCABULARY_READ = 'odp.vocabulary:read'
 
 
+class ODPSystemRole(str, Enum):
+    ODP_ADMIN = 'ODP.Admin'
+    SAEON_STAFF = 'SAEON.Staff'
+    DEFAULT = 'Default'
+
+
 class ODPCollectionTag(str, Enum):
     READY = 'Collection.Ready'
     FROZEN = 'Collection.Frozen'
