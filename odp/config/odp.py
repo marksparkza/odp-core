@@ -67,8 +67,6 @@ class ODPUIConfig(BaseConfig):
     class Config:
         env_prefix = 'ODP_UI_'
 
-    API_URL: AnyHttpUrl  # URL of the ODP API
-
     _subconfig = {
         'ADMIN': ODPUIAdminConfig,
         'PUBLIC': ODPUIPublicConfig,
@@ -102,6 +100,7 @@ class ODPConfig(BaseConfig):
 
     ENV: ServerEnv  # deployment environment
     LOG_LEVEL: LogLevel = 'info'  # logging detail level
+    API_URL: AnyHttpUrl = None
 
     _subconfig = {
         'API': ODPAPIConfig,

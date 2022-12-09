@@ -20,3 +20,17 @@ class OAuth2ClientConfigMixin(BaseSettings):
     CLIENT_ID: str
     CLIENT_SECRET: str
     SCOPE: List[str] = []
+
+
+class ODPUIClientMixin(BaseSettings):
+    # user interface client (authorization code grant)
+    UI_CLIENT_ID: str
+    UI_CLIENT_SECRET: str
+    UI_CLIENT_SCOPE: List[str] = []
+
+    # system interface client (client credentials grant)
+    SI_CLIENT_ID: str
+    SI_CLIENT_SECRET: str
+    SI_CLIENT_SCOPE: List[str] = []
+
+    FLASK_SECRET: str
