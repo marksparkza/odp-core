@@ -91,6 +91,7 @@ class ODPTagSchema(str, Enum):
 class ODPCatalog(str, Enum):
     SAEON = 'SAEON'
     DATACITE = 'DataCite'
+    MIMS = 'MIMS'
 
 
 class ODPVocabulary(str, Enum):
