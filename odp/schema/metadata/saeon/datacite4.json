@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id":"https://odp.saeon.ac.za/schema/metadata/saeon/datacite-4",
+    "$id":"https://odp.saeon.ac.za/schema/metadata/saeon/datacite4",
     "$ref": "https://odp.saeon.ac.za/schema/metadata/datacite/kernel-4.3",
     "type": "object",
     "properties": {
