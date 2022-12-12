@@ -23,14 +23,16 @@ class OAuth2ClientConfigMixin(BaseSettings):
 
 
 class ODPUIClientMixin(BaseSettings):
-    # user interface client (authorization code grant)
+    """Config mixin for ODP Flask apps."""
+
+    # user interface (authorization code grant)
     UI_CLIENT_ID: str
     UI_CLIENT_SECRET: str
     UI_CLIENT_SCOPE: List[str] = []
 
-    # system interface client (client credentials grant)
-    SI_CLIENT_ID: str
-    SI_CLIENT_SECRET: str
-    SI_CLIENT_SCOPE: List[str] = []
+    # client interface (client credentials grant)
+    CI_CLIENT_ID: str
+    CI_CLIENT_SECRET: str
+    CI_CLIENT_SCOPE: List[str] = []
 
     FLASK_SECRET: str
