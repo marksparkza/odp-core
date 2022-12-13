@@ -1,13 +1,14 @@
 from enum import Enum
-from typing import List, Literal
+from typing import Literal
 
 from pydantic import AnyHttpUrl, constr
 
 from odp.config import BaseConfig
-from odp.config.mixins import DBConfigMixin, OAuth2ClientConfigMixin
+from odp.config.mixins import AppConfigMixin, DBConfigMixin
 
 
 class ServerEnv(str, Enum):
+    """Deployment environment."""
     DEVELOPMENT = 'development'
     TESTING = 'testing'
     STAGING = 'staging'
@@ -15,6 +16,7 @@ class ServerEnv(str, Enum):
 
 
 class LogLevel(str, Enum):
+    """Logging detail level."""
     CRITICAL = 'critical'
     ERROR = 'error'
     WARNING = 'warning'
@@ -31,55 +33,31 @@ class ODPAPIConfig(BaseConfig):
     class Config:
         env_prefix = 'ODP_API_'
 
-    # (optional) URL path prefix at which the API is mounted, e.g. `/api`
+    # URL path prefix at which the API is mounted, e.g. `/api`
     PATH_PREFIX: constr(regex=r'^(/\w+)*$') = ''
 
-    # (optional) JSON-encoded list of allowed CORS origins; `["*"]` to allow any origin
-    ALLOW_ORIGINS: List[Literal['*'] | AnyHttpUrl] = []
-
-    # catalog UI base URL; published DOIs resolve here
-    CATALOG_UI_URL: AnyHttpUrl
+    # JSON-encoded list of allowed CORS origins; `["*"]` to allow any origin
+    ALLOW_ORIGINS: list[Literal['*'] | AnyHttpUrl] = []
 
 
-class ODPUIAdminConfig(BaseConfig, OAuth2ClientConfigMixin):
+class ODPAdminConfig(BaseConfig, AppConfigMixin):
     class Config:
-        env_prefix = 'ODP_UI_ADMIN_'
-
-    FLASK_KEY: str  # Flask secret key
+        env_prefix = 'ODP_ADMIN_'
 
 
-class ODPUIPublicConfig(BaseConfig, OAuth2ClientConfigMixin):
+class ODPWebConfig(BaseConfig, AppConfigMixin):
     class Config:
-        env_prefix = 'ODP_UI_PUBLIC_'
+        env_prefix = 'ODP_WEB_'
 
-    FLASK_KEY: str  # Flask secret key
-
-
-class ODPUIDAPConfig(BaseConfig, OAuth2ClientConfigMixin):
-    class Config:
-        env_prefix = 'ODP_UI_DAP_'
-
-    FLASK_KEY: str  # Flask secret key
     THREDDS_URL: AnyHttpUrl  # proxy URL for the THREDDS server
-
-
-class ODPUIConfig(BaseConfig):
-    class Config:
-        env_prefix = 'ODP_UI_'
-
-    _subconfig = {
-        'ADMIN': ODPUIAdminConfig,
-        'PUBLIC': ODPUIPublicConfig,
-        'DAP': ODPUIDAPConfig,
-    }
 
 
 class ODPIdentityConfig(BaseConfig):
     class Config:
         env_prefix = 'ODP_IDENTITY_'
 
-    FLASK_KEY: str  # Flask secret key
-    NCCRD_BRAND_CLIENT_ID: str = None  # OAuth2 client ID that will trigger NCCRD UI branding
+    FLASK_SECRET: str  # Flask secret key
+    NCCRD_CLIENT_ID: str = None  # OAuth2 client ID that will trigger NCCRD UI branding
 
 
 class ODPMailConfig(BaseConfig):
@@ -89,22 +67,25 @@ class ODPMailConfig(BaseConfig):
     HOST: str  # mail server IP / hostname
     PORT: int = 25  # mail server port
     TLS: bool = False  # use TLS
-    USERNAME: str = None  # sender email address
-    PASSWORD: str = None  # sender password
+    USERNAME: str = None  # sending account username
+    PASSWORD: str = None  # sending account password
 
 
 class ODPConfig(BaseConfig):
     class Config:
         env_prefix = 'ODP_'
 
-    ENV: ServerEnv  # deployment environment
-    LOG_LEVEL: LogLevel = 'info'  # logging detail level
+    ENV: ServerEnv
+    LOG: LogLevel = 'info'
+
     API_URL: AnyHttpUrl = None
+    CATALOG_URL: AnyHttpUrl = None
 
     _subconfig = {
         'API': ODPAPIConfig,
         'DB': ODPDBConfig,
-        'UI': ODPUIConfig,
+        'ADMIN': ODPAdminConfig,
+        'WEB': ODPWebConfig,
         'IDENTITY': ODPIdentityConfig,
         'MAIL': ODPMailConfig,
     }

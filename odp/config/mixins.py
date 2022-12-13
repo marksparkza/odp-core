@@ -1,5 +1,3 @@
-from typing import List
-
 from pydantic import BaseSettings
 
 
@@ -19,20 +17,20 @@ class DBConfigMixin(BaseSettings):
 class OAuth2ClientConfigMixin(BaseSettings):
     CLIENT_ID: str
     CLIENT_SECRET: str
-    SCOPE: List[str] = []
+    SCOPE: list[str] = []
 
 
-class ODPUIClientMixin(BaseSettings):
+class AppConfigMixin(BaseSettings):
     """Config mixin for ODP Flask apps."""
 
     # user interface (authorization code grant)
     UI_CLIENT_ID: str
     UI_CLIENT_SECRET: str
-    UI_CLIENT_SCOPE: List[str] = []
+    UI_CLIENT_SCOPE: list[str] = []
 
     # client interface (client credentials grant)
     CI_CLIENT_ID: str
     CI_CLIENT_SECRET: str
-    CI_CLIENT_SCOPE: List[str] = []
+    CI_CLIENT_SCOPE: list[str] = []
 
     FLASK_SECRET: str
