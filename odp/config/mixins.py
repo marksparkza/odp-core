@@ -8,6 +8,7 @@ class DBConfigMixin(BaseSettings):
     USER: str
     PASS: str
     ECHO: bool = False  # when True, SQLAlchemy emits SQL commands to stderr
+    ISOLATION_LEVEL: str = 'READ COMMITTED'  # read committed is the PG default
 
     @property
     def URL(self) -> str:
