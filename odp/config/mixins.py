@@ -30,8 +30,8 @@ class AppConfigMixin(BaseSettings):
     UI_CLIENT_SCOPE: list[str] = []
 
     # client interface (client credentials grant)
-    CI_CLIENT_ID: str
-    CI_CLIENT_SECRET: str
+    CI_CLIENT_ID: str = None
+    CI_CLIENT_SECRET: str = None
     CI_CLIENT_SCOPE: list[str] = []
 
     FLASK_SECRET: str
