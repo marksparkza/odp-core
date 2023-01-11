@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 import requests
 from authlib.integrations.base_client.errors import OAuthError
@@ -44,7 +44,7 @@ class ODPBaseClient:
             self,
             method: str,
             path: str,
-            data: Optional[dict],
+            data: dict | None,
             **params: Any,
     ) -> Any:
         try:
@@ -98,16 +98,25 @@ class ODPClient(ODPBaseClient):
                 grant_type='client_credentials',
                 timeout=10.0,
             )
+
         return self._token
 
     def _send_request(self, method: str, url: str, data: dict, params: dict) -> requests.Response:
-        return requests.request(
-            method=method,
-            url=url,
-            json=data,
-            params=params,
-            headers={
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + self.token['access_token'],
-            }
-        )
+        for _ in range(2):
+            response = requests.request(
+                method=method,
+                url=url,
+                json=data,
+                params=params,
+                headers={
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + self.token['access_token'],
+                }
+            )
+            if response.status_code == 403:
+                # the token has probably expired; fetch a new one and try once more
+                self._token = None
+            else:
+                break
+
+        return response
