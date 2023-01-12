@@ -13,4 +13,3 @@ class DataciteConfig(BaseConfig):
 
     USERNAME: str  # DataCite account username
     PASSWORD: str  # DataCite account password
-    DOI_RETURN_URL: AnyHttpUrl  # base URL for DOI back-links
