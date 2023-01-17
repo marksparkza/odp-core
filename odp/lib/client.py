@@ -28,6 +28,10 @@ class ODPBaseClient:
         self.client_secret = client_secret
         self.scope = scope
 
+    @property
+    def token(self) -> dict:
+        raise NotImplementedError
+
     def get(self, path: str, **params: Any) -> Any:
         return self.request('GET', path, None, **params)
 
