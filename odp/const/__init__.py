@@ -25,7 +25,7 @@ class ODPScope(str, Enum):
     COLLECTION_FREEZE = 'odp.collection:freeze'
     COLLECTION_INFRASTRUCTURE = 'odp.collection:infrastructure'
     COLLECTION_PROJECT = 'odp.collection:project'
-    COLLECTION_NOINDEX = 'odp.collection:noindex'
+    COLLECTION_NOSEARCH = 'odp.collection:nosearch'
     PROVIDER_ADMIN = 'odp.provider:admin'
     PROVIDER_READ = 'odp.provider:read'
     RECORD_ADMIN = 'odp.record:admin'
@@ -34,7 +34,7 @@ class ODPScope(str, Enum):
     RECORD_QC = 'odp.record:qc'
     RECORD_EMBARGO = 'odp.record:embargo'
     RECORD_MIGRATE = 'odp.record:migrate'
-    RECORD_NOINDEX = 'odp.record:noindex'
+    RECORD_NOSEARCH = 'odp.record:nosearch'
     RECORD_RETRACT = 'odp.record:retract'
     RECORD_NOTE = 'odp.record:note'
     ROLE_ADMIN = 'odp.role:admin'
@@ -61,14 +61,14 @@ class ODPCollectionTag(str, Enum):
     FROZEN = 'Collection.Frozen'
     INFRASTRUCTURE = 'Collection.Infrastructure'
     PROJECT = 'Collection.Project'
-    NOTINDEXED = 'Collection.NotIndexed'
+    NOTSEARCHABLE = 'Collection.NotSearchable'
 
 
 class ODPRecordTag(str, Enum):
     QC = 'Record.QC'
     EMBARGO = 'Record.Embargo'
     MIGRATED = 'Record.Migrated'
-    NOTINDEXED = 'Record.NotIndexed'
+    NOTSEARCHABLE = 'Record.NotSearchable'
     RETRACTED = 'Record.Retracted'
     NOTE = 'Record.Note'
 
