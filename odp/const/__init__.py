@@ -26,6 +26,7 @@ class ODPScope(str, Enum):
     COLLECTION_INFRASTRUCTURE = 'odp.collection:infrastructure'
     COLLECTION_PROJECT = 'odp.collection:project'
     COLLECTION_NOSEARCH = 'odp.collection:nosearch'
+    COLLECTION_HARVESTED = 'odp.collection:harvested'
     PROVIDER_ADMIN = 'odp.provider:admin'
     PROVIDER_READ = 'odp.provider:read'
     RECORD_ADMIN = 'odp.record:admin'
@@ -62,6 +63,7 @@ class ODPCollectionTag(str, Enum):
     INFRASTRUCTURE = 'Collection.Infrastructure'
     PROJECT = 'Collection.Project'
     NOTSEARCHABLE = 'Collection.NotSearchable'
+    HARVESTED = 'Collection.Harvested'
 
 
 class ODPRecordTag(str, Enum):
