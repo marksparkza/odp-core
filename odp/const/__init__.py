@@ -17,6 +17,7 @@ SAEON_EMAIL_DOMAINS = ['saeon.ac.za', 'saeon.nrf.ac.za']
 
 class ODPScope(str, Enum):
     CATALOG_READ = 'odp.catalog:read'
+    CATALOG_SEARCH = 'odp.catalog:search'
     CLIENT_ADMIN = 'odp.client:admin'
     CLIENT_READ = 'odp.client:read'
     COLLECTION_ADMIN = 'odp.collection:admin'
