@@ -1,6 +1,6 @@
 {
     "$id": "https://odp.saeon.ac.za/schema/metadata/saeon/iso19115",
-    "$schema": "https://jschon.dev/ext/translation/schema",
+    "$schema": "https://jschon.dev/meta/translation/schema",
     "type": "object",
     "translations": [
         {

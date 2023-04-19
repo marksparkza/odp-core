@@ -10,7 +10,7 @@
         "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
         "https://json-schema.org/draft/2020-12/vocab/format-annotation": true,
         "https://json-schema.org/draft/2020-12/vocab/content": true,
-        "https://jschon.dev/ext/translation": true,
+        "https://jschon.dev/vocab/translation": true,
         "https://odp.saeon.ac.za/schema/__meta__": true
     },
     "$dynamicAnchor": "meta",
@@ -23,7 +23,7 @@
         {"$ref": "https://json-schema.org/draft/2020-12/meta/meta-data"},
         {"$ref": "https://json-schema.org/draft/2020-12/meta/format-annotation"},
         {"$ref": "https://json-schema.org/draft/2020-12/meta/content"},
-        {"$ref": "https://jschon.dev/ext/translation/vocab"},
+        {"$ref": "https://jschon.dev/meta/translation/vocabulary"},
         {"$ref": "https://odp.saeon.ac.za/schema/__meta__/vocab"}
     ]
 }
