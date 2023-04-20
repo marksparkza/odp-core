@@ -22,7 +22,7 @@ class ODPScope(str, Enum):
     CLIENT_READ = 'odp.client:read'
     COLLECTION_ADMIN = 'odp.collection:admin'
     COLLECTION_READ = 'odp.collection:read'
-    COLLECTION_READY = 'odp.collection:ready'
+    COLLECTION_PUBLISH = 'odp.collection:publish'
     COLLECTION_FREEZE = 'odp.collection:freeze'
     COLLECTION_INFRASTRUCTURE = 'odp.collection:infrastructure'
     COLLECTION_PROJECT = 'odp.collection:project'
@@ -59,7 +59,7 @@ class ODPSystemRole(str, Enum):
 
 
 class ODPCollectionTag(str, Enum):
-    READY = 'Collection.Ready'
+    PUBLISHED = 'Collection.Published'
     FROZEN = 'Collection.Frozen'
     INFRASTRUCTURE = 'Collection.Infrastructure'
     PROJECT = 'Collection.Project'
