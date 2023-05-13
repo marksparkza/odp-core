@@ -77,8 +77,8 @@ class ODPConfig(BaseConfig):
 
     ENV: ServerEnv  # deployment environment
     LOG: LogLevel = 'info'  # logging detail level
-    API_URL: AnyHttpUrl = '/api'  # ODP API URL
-    ADMIN_URL: AnyHttpUrl = '/admin'  # ODP Admin URL
+    API_URL: AnyHttpUrl = None  # ODP API URL
+    ADMIN_URL: AnyHttpUrl = None  # ODP Admin URL
 
     _subconfig = {
         'API': ODPAPIConfig,
