@@ -39,6 +39,7 @@ class ODPScope(str, Enum):
     RECORD_NOSEARCH = 'odp.record:nosearch'
     RECORD_RETRACT = 'odp.record:retract'
     RECORD_NOTE = 'odp.record:note'
+    RECORD_SDG = 'odp.record:sdg'
     ROLE_ADMIN = 'odp.role:admin'
     ROLE_READ = 'odp.role:read'
     SCHEMA_READ = 'odp.schema:read'
@@ -49,6 +50,7 @@ class ODPScope(str, Enum):
     USER_READ = 'odp.user:read'
     VOCABULARY_INFRASTRUCTURE = 'odp.vocabulary:infrastructure'
     VOCABULARY_PROJECT = 'odp.vocabulary:project'
+    VOCABULARY_SDG = 'odp.vocabulary:sdg'
     VOCABULARY_READ = 'odp.vocabulary:read'
 
 
@@ -74,6 +76,7 @@ class ODPRecordTag(str, Enum):
     NOTSEARCHABLE = 'Record.NotSearchable'
     RETRACTED = 'Record.Retracted'
     NOTE = 'Record.Note'
+    SDG = 'Record.SDG'
 
 
 class ODPMetadataSchema(str, Enum):
@@ -89,6 +92,7 @@ class ODPTagSchema(str, Enum):
     RECORD_QC = 'Tag.Record.QC'
     RECORD_EMBARGO = 'Tag.Record.Embargo'
     RECORD_MIGRATED = 'Tag.Record.Migrated'
+    RECORD_SDG = 'Tag.Record.SDG'
 
 
 class ODPCatalog(str, Enum):
@@ -100,8 +104,10 @@ class ODPCatalog(str, Enum):
 class ODPVocabulary(str, Enum):
     INFRASTRUCTURE = 'Infrastructure'
     PROJECT = 'Project'
+    SDG = 'SDG'
 
 
 class ODPVocabularySchema(str, Enum):
     INFRASTRUCTURE = 'Vocabulary.Infrastructure'
     PROJECT = 'Vocabulary.Project'
+    SDG = 'Vocabulary.SDG'
