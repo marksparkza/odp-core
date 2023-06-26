@@ -87,12 +87,12 @@ class ODPMetadataSchema(str, Enum):
 
 class ODPTagSchema(str, Enum):
     GENERIC = 'Tag.Generic'
+    KEYWORD = 'Tag.Keyword'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
     COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'
     RECORD_EMBARGO = 'Tag.Record.Embargo'
     RECORD_MIGRATED = 'Tag.Record.Migrated'
-    RECORD_SDG = 'Tag.Record.SDG'
 
 
 class ODPCatalog(str, Enum):

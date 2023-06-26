@@ -1,0 +1,12 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/keyword",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "vocabulary": {"type": "string"},
+        "keyword": {"type": "string"},
+        "comment": {"type": "string"}
+    },
+    "required": ["vocabulary", "keyword"],
+    "additionalProperties": false
+}
