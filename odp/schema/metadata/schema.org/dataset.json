@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://odp.saeon.ac.za/schema/metadata/schema.org/dataset",
+    "description": "Informational schema for the JSON-LD representation of an ODP metadata record",
+    "type": "object",
+    "properties": {
+        "@context": {"const": "https://schema.org/"},
+        "@type": {"const": "Dataset"},
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "identifier": {"type": "string"},
+        "keywords": {"type": "array"},
+        "license": {"type": "string", "format": "uri"},
+        "url": {"type": "string", "format": "uri"}
+    }
+}
