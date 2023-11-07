@@ -6,6 +6,7 @@
     "properties": {
         "@context": {"const": "https://schema.org/"},
         "@type": {"const": "Dataset"},
+        "@id": {"type": "string", "format": "uri"},
         "name": {"type": "string"},
         "description": {"type": "string"},
         "identifier": {"type": "string"},
