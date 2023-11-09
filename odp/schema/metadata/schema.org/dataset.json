@@ -28,6 +28,7 @@
                     }
                 }
             }
-        }
+        },
+        "temporalCoverage": {"type": "string"}
     }
 }
