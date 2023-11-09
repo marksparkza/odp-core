@@ -10,8 +10,24 @@
         "name": {"type": "string"},
         "description": {"type": "string"},
         "identifier": {"type": "string"},
-        "keywords": {"type": "array"},
+        "keywords": {
+            "type": "array",
+            "items": {"type": "string"}
+        },
         "license": {"type": "string", "format": "uri"},
-        "url": {"type": "string", "format": "uri"}
+        "url": {"type": "string", "format": "uri"},
+        "spatialCoverage": {
+            "type": "object",
+            "properties": {
+                "@type": {"const": "Place"},
+                "geo": {
+                    "type": "object",
+                    "properties": {
+                        "@type": {"const": "GeoShape"},
+                        "box": {"type": "string"}
+                    }
+                }
+            }
+        }
     }
 }
