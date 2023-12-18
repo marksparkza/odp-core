@@ -1,9 +1,0 @@
-{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://odp.saeon.ac.za/schema/metadata/ris/citation",
-    "description": "Informational schema for the RIS representation of an ODP metadata record",
-    "type": "object",
-    "properties": {
-        "ris": {"type": "string"}
-    }
-}
