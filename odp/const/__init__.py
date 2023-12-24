@@ -16,6 +16,7 @@ SAEON_EMAIL_DOMAINS = ['saeon.ac.za', 'saeon.nrf.ac.za']
 
 
 class ODPScope(str, Enum):
+    ARCHIVE_READ = 'odp.archive:read'
     CATALOG_READ = 'odp.catalog:read'
     CATALOG_SEARCH = 'odp.catalog:search'
     CLIENT_ADMIN = 'odp.client:admin'
@@ -28,6 +29,9 @@ class ODPScope(str, Enum):
     COLLECTION_PROJECT = 'odp.collection:project'
     COLLECTION_NOSEARCH = 'odp.collection:nosearch'
     COLLECTION_HARVESTED = 'odp.collection:harvested'
+    PACKAGE_ADMIN = 'odp.package:admin'
+    PACKAGE_READ = 'odp.package:read'
+    PACKAGE_WRITE = 'odp.package:write'
     PROVIDER_ADMIN = 'odp.provider:admin'
     PROVIDER_READ = 'odp.provider:read'
     RECORD_ADMIN = 'odp.record:admin'
@@ -40,6 +44,9 @@ class ODPScope(str, Enum):
     RECORD_RETRACT = 'odp.record:retract'
     RECORD_NOTE = 'odp.record:note'
     RECORD_SDG = 'odp.record:sdg'
+    RESOURCE_ADMIN = 'odp.resource:admin'
+    RESOURCE_READ = 'odp.resource:read'
+    RESOURCE_WRITE = 'odp.resource:write'
     ROLE_ADMIN = 'odp.role:admin'
     ROLE_READ = 'odp.role:read'
     SCHEMA_READ = 'odp.schema:read'
