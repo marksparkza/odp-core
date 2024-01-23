@@ -1,3 +1,4 @@
+from .archive import ArchiveModel
 from .audit import (
     AuditModel,
     CollectionAuditModel,
@@ -23,8 +24,10 @@ from .catalog import (
 )
 from .client import ClientModel, ClientModelIn
 from .collection import CollectionModel, CollectionModelIn
+from .package import PackageModel, PackageModelIn
 from .provider import ProviderModel, ProviderModelIn
 from .record import RecordModel, RecordModelIn
+from .resource import ResourceModel, ResourceModelIn
 from .role import RoleModel, RoleModelIn
 from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel

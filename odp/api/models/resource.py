@@ -1,36 +1,29 @@
 from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, Field
 
 
 class ResourceModel(BaseModel):
     id: str
-    provider_id: str
-    provider_key: str
-    archive_id: str
-    path: str
-    type: ResourceType
-    name: Optional[str]
+    title: str
+    description: Optional[str]
+    filename: Optional[str]
+    mimetype: Optional[str]
     size: Optional[int]
     md5: Optional[str]
     timestamp: str
+    provider_id: str
+    provider_key: str
+    urls: dict[str, str] = Field(..., title='Mapping of archive IDs to resource URLs')
 
 
 class ResourceModelIn(BaseModel):
-    provider_id: str
-    archive_id: str
-    path: str
-    type: ResourceType
-    name: Optional[str]
+    title: str
+    description: Optional[str]
+    filename: Optional[str]
+    mimetype: Optional[str]
     size: Optional[int]
     md5: Optional[str]
-    timestamp: Optional[str]
-    text_data: Optional[str]
-    binary_data: Optional[bytes]
-
-    @validator('path')
-    def validate_path(cls, path: str):
-        if not path.startswith('/'):
-            raise ValueError("path must start with '/'")
-
-        return path
+    provider_id: str
+    archive_id: str
+    archive_path: str = Field(..., regex=r'^/\S*$')
