@@ -14,7 +14,7 @@ class ResourceModel(BaseModel):
     timestamp: str
     provider_id: str
     provider_key: str
-    urls: dict[str, str] = Field(..., title='Mapping of archive IDs to resource URLs')
+    archive_urls: dict[str, str] = Field(..., title='Mapping of archive IDs to resource URLs')
 
 
 class ResourceModelIn(BaseModel):
