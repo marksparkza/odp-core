@@ -3,13 +3,17 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel
 
-Permissions = dict[str, Literal['*'] | list[str]]
-"""The effective set of permissions for a user or a client. A dictionary of
-scope ids (OAuth2 scope identifiers), where the value for each id is either:
+Permission = Literal['*'] | list[str]
+"""Represents a granted scope along with its applicability.
 
-- '*' if the scope is applicable across all relevant platform entities; or
-- a set of collection ids to which the scope's usage is limited (implemented
-  as a list for JSON serialization)
+- '*' if the scope is applicable to all relevant entities
+- list of object ids to which the scope's usage is restricted
+"""
+
+Permissions = dict[str, Permission]
+"""The effective set of permissions for a user or a client. A dictionary of
+scope ids (OAuth2 scope identifiers), where the value for each id indicates
+the applicability of the scope.
 """
 
 
