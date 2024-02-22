@@ -1,5 +1,7 @@
 from enum import Enum
 
+from odp.const.scope import ODPScope
+
 # SAEON's DOI prefix
 DOI_PREFIX = 10.15493
 
@@ -13,45 +15,6 @@ DOI_REGEX = r'^10\.\d{4,}(\.\d+)*/[-._;()/:a-zA-Z0-9]+$'
 SID_REGEX = r'^[-._;()/:a-zA-Z0-9]+$'
 
 SAEON_EMAIL_DOMAINS = ['saeon.ac.za', 'saeon.nrf.ac.za']
-
-
-class ODPScope(str, Enum):
-    CATALOG_READ = 'odp.catalog:read'
-    CATALOG_SEARCH = 'odp.catalog:search'
-    CLIENT_ADMIN = 'odp.client:admin'
-    CLIENT_READ = 'odp.client:read'
-    COLLECTION_ADMIN = 'odp.collection:admin'
-    COLLECTION_READ = 'odp.collection:read'
-    COLLECTION_PUBLISH = 'odp.collection:publish'
-    COLLECTION_FREEZE = 'odp.collection:freeze'
-    COLLECTION_INFRASTRUCTURE = 'odp.collection:infrastructure'
-    COLLECTION_PROJECT = 'odp.collection:project'
-    COLLECTION_NOSEARCH = 'odp.collection:nosearch'
-    COLLECTION_HARVESTED = 'odp.collection:harvested'
-    PROVIDER_ADMIN = 'odp.provider:admin'
-    PROVIDER_READ = 'odp.provider:read'
-    RECORD_ADMIN = 'odp.record:admin'
-    RECORD_READ = 'odp.record:read'
-    RECORD_WRITE = 'odp.record:write'
-    RECORD_QC = 'odp.record:qc'
-    RECORD_EMBARGO = 'odp.record:embargo'
-    RECORD_MIGRATE = 'odp.record:migrate'
-    RECORD_NOSEARCH = 'odp.record:nosearch'
-    RECORD_RETRACT = 'odp.record:retract'
-    RECORD_NOTE = 'odp.record:note'
-    RECORD_SDG = 'odp.record:sdg'
-    ROLE_ADMIN = 'odp.role:admin'
-    ROLE_READ = 'odp.role:read'
-    SCHEMA_READ = 'odp.schema:read'
-    SCOPE_READ = 'odp.scope:read'
-    TAG_READ = 'odp.tag:read'
-    TOKEN_READ = 'odp.token:read'
-    USER_ADMIN = 'odp.user:admin'
-    USER_READ = 'odp.user:read'
-    VOCABULARY_INFRASTRUCTURE = 'odp.vocabulary:infrastructure'
-    VOCABULARY_PROJECT = 'odp.vocabulary:project'
-    VOCABULARY_SDG = 'odp.vocabulary:sdg'
-    VOCABULARY_READ = 'odp.vocabulary:read'
 
 
 class ODPSystemRole(str, Enum):
@@ -95,6 +58,14 @@ class ODPTagSchema(str, Enum):
     RECORD_QC = 'Tag.Record.QC'
     RECORD_EMBARGO = 'Tag.Record.Embargo'
     RECORD_MIGRATED = 'Tag.Record.Migrated'
+
+
+class ODPArchive(str, Enum):
+    ODP_UPLOAD = 'ODP.Upload'
+    MIMS_UPLOAD = 'MIMS.Upload'
+    MIMS_ARCHIVE = 'MIMS.Archive'
+    SAEON_OBSERVATIONS = 'SAEON.Observations'
+    SAEON_REPOSITORY = 'SAEON.Repository'
 
 
 class ODPCatalog(str, Enum):
