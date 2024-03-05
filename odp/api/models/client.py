@@ -10,8 +10,9 @@ class ClientModel(BaseModel):
     id: str
     name: str
     scope_ids: list[str]
-    collection_specific: bool
-    collection_keys: dict[str, str]
+    provider_specific: bool
+    provider_id: Optional[str]
+    provider_key: Optional[str]
     grant_types: list[GrantType]
     response_types: list[ResponseType]
     redirect_uris: list[AnyHttpUrl]
@@ -26,8 +27,8 @@ class ClientModelIn(BaseModel):
     name: str
     secret: str = Field(None, min_length=16)
     scope_ids: list[str]
-    collection_specific: bool
-    collection_ids: list[str]
+    provider_specific: bool
+    provider_id: Optional[str]
     grant_types: list[GrantType]
     response_types: list[ResponseType]
     redirect_uris: list[AnyHttpUrl]
@@ -36,12 +37,18 @@ class ClientModelIn(BaseModel):
     allowed_cors_origins: list[AnyHttpUrl]
     client_credentials_grant_access_token_lifespan: Optional[str] = Field(None, regex='^([0-9]+(ns|us|ms|s|m|h))*$')
 
-    @validator('collection_ids')
-    def validate_collection_ids(cls, collection_ids, values):
+    @validator('provider_id')
+    def validate_provider_id(cls, provider_id, values):
         try:
-            if not values['collection_specific'] and collection_ids:
-                raise ValueError("Collections can only be associated with a collection-specific client.")
-        except KeyError:
-            pass  # ignore: collection_specific validation already failed
+            provider_specific = values['provider_specific']
 
-        return collection_ids
+            if provider_specific and not provider_id:
+                raise ValueError('A provider must be associated with a provider-specific client.')
+
+            if provider_id and not provider_specific:
+                raise ValueError('A provider may only be associated with a provider-specific client.')
+
+        except KeyError:
+            pass  # ignore: provider_specific validation already failed
+
+        return provider_id

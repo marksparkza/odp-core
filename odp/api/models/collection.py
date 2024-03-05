@@ -15,7 +15,6 @@ class CollectionModel(BaseModel):
     provider_key: str
     record_count: int
     tags: list[TagInstanceModel]
-    client_ids: list[str]
     role_ids: list[str]
     timestamp: str
 
