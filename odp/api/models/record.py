@@ -21,7 +21,7 @@ class RecordModel(BaseModel):
     schema_uri: str
     parent_id: Optional[str]
     parent_doi: Optional[str]
-    child_dois: dict[str, str] = Field(..., title='Mapping of child DOIs to corresponding IDs')
+    child_dois: dict[str, str] = Field(..., title='Child record id:DOI pairs')
     metadata: dict[str, Any]
     validity: dict[str, Any]
     timestamp: str

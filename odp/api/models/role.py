@@ -7,7 +7,7 @@ class RoleModel(BaseModel):
     id: str
     scope_ids: list[str]
     collection_specific: bool
-    collection_keys: dict[str, str]
+    collection_keys: dict[str, str] = Field(..., title='Collection id:key pairs')
 
 
 class RoleModelIn(BaseModel):

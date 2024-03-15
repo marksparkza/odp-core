@@ -7,8 +7,8 @@ class ProviderModel(BaseModel):
     id: str
     key: str
     name: str
-    collection_keys: dict[str, str]
-    user_ids: dict[str, str] = Field(..., title='User IDs and names')
+    collection_keys: dict[str, str] = Field(..., title='Collection id:key pairs')
+    user_names: dict[str, str] = Field(..., title='User id:name pairs')
     timestamp: str
 
 
