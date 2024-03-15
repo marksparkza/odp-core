@@ -54,7 +54,7 @@ class ProviderAuditModel(AuditModel):
     provider_id: str
     provider_key: str
     provider_name: str
-    provider_users: Optional[list[str]]
+    provider_users: list[str]
 
 
 class VocabularyTermAuditModel(AuditModel):
