@@ -54,7 +54,6 @@ class ProviderAuditModel(AuditModel):
     provider_id: str
     provider_key: str
     provider_name: str
-    provider_users: list[str]
 
 
 class VocabularyTermAuditModel(AuditModel):
@@ -76,3 +75,4 @@ class IdentityAuditModel(BaseModel):
     user_email: str
     user_active: bool
     user_roles: list[str]
+    user_providers: list[str]

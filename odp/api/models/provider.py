@@ -9,10 +9,10 @@ class ProviderModel(BaseModel):
     name: str
     collection_keys: dict[str, str] = Field(..., title='Collection id:key pairs')
     user_names: dict[str, str] = Field(..., title='User id:name pairs')
+    client_ids: list[str]
     timestamp: str
 
 
 class ProviderModelIn(BaseModel):
     key: str = Field(..., regex=ID_REGEX)
     name: str
-    user_ids: list[str]
