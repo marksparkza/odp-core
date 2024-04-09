@@ -14,7 +14,7 @@ class PackageModel(BaseModel):
     validity: dict[str, Any]
     notes: Optional[str]
     timestamp: str
-    resource_count: int
+    resource_ids: list[str]
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
