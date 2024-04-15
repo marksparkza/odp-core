@@ -26,4 +26,4 @@ class ResourceModelIn(BaseModel):
     md5: Optional[str]
     provider_id: str
     archive_id: str
-    archive_path: str = Field(..., regex=r'^/\S*$')
+    archive_path: str = Field(..., regex=r'^\S*$', title='Resource path relative to archive URL')
