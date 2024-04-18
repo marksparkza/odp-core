@@ -18,3 +18,4 @@ class ProviderModel(BaseModel):
 class ProviderModelIn(BaseModel):
     key: str = Field(..., regex=ID_REGEX)
     name: str
+    user_ids: list[str]

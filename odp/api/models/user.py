@@ -18,4 +18,3 @@ class UserModelIn(BaseModel):
     id: str
     active: bool
     role_ids: list[str]
-    provider_ids: list[str]
