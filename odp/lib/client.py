@@ -35,6 +35,9 @@ class ODPBaseClient:
     def get(self, path: str, **params: Any) -> Any:
         return self.request('GET', path, None, **params)
 
+    def get_bytes(self, path: str, **params: Any) -> bytes:
+        return self.request('GET', path, None, return_bytes=True, **params)
+
     def post(self, path: str, data: dict, **params: Any) -> Any:
         return self.request('POST', path, data, **params)
 
@@ -49,12 +52,13 @@ class ODPBaseClient:
             method: str,
             path: str,
             data: dict | None,
+            return_bytes: bool = False,
             **params: Any,
     ) -> Any:
         try:
             r = self._send_request(method, self.api_url + path, data, params)
             r.raise_for_status()
-            return r.json()
+            return r.content if return_bytes else r.json()
 
         except requests.RequestException as e:
             if e.response is not None:
