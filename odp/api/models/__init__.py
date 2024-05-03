@@ -1,4 +1,4 @@
-from .archive import ArchiveModel
+from .archive import ArchiveModel, ArchiveResourceModel
 from .audit import (
     AuditModel,
     CollectionAuditModel,
