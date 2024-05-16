@@ -25,8 +25,8 @@ class AppConfigMixin(BaseSettings):
     """Config mixin for ODP Flask apps."""
 
     # user interface (authorization code grant)
-    UI_CLIENT_ID: str
-    UI_CLIENT_SECRET: str
+    UI_CLIENT_ID: str = None
+    UI_CLIENT_SECRET: str = None
     UI_CLIENT_SCOPE: list[str] = []
 
     # client interface (client credentials grant)
