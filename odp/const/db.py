@@ -6,6 +6,12 @@ class DBEnum(str, Enum):
         return repr(self.value)
 
 
+class PackageStatus(DBEnum):
+    pending = 'pending'
+    submitted = 'submitted'
+    archived = 'archived'
+
+
 class SchemaType(DBEnum):
     metadata = 'metadata'
     tag = 'tag'
@@ -19,6 +25,7 @@ class ScopeType(DBEnum):
 
 
 class TagType(DBEnum):
+    package = 'package'
     collection = 'collection'
     record = 'record'
 
