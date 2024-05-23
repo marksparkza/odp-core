@@ -24,7 +24,7 @@ from .catalog import (
 )
 from .client import ClientModel, ClientModelIn
 from .collection import CollectionModel, CollectionModelIn
-from .package import PackageModel, PackageModelIn
+from .package import PackageDetailModel, PackageModel, PackageModelIn
 from .provider import ProviderModel, ProviderModelIn
 from .record import RecordModel, RecordModelIn
 from .resource import ResourceModel, ResourceModelIn

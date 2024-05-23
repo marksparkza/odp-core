@@ -1,35 +1,31 @@
-from typing import Any, Optional
+from typing import Optional
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 
-from odp.const import ODPMetadataSchema
+from odp.api.models.resource import ResourceModel
+from odp.const.db import PackageStatus
 
 
 class PackageModel(BaseModel):
     id: str
-    provider_id: str
-    provider_key: str
-    schema_id: str
-    metadata: dict[str, Any]
-    validity: dict[str, Any]
+    title: str
+    status: PackageStatus
     notes: Optional[str]
     timestamp: str
+    provider_id: str
+    provider_key: str
     resource_ids: list[str]
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
 
 
+class PackageDetailModel(PackageModel):
+    resources: list[ResourceModel]
+
+
 class PackageModelIn(BaseModel):
-    provider_id: str
-    schema_id: str
-    metadata: dict[str, Any]
+    title: str
     notes: Optional[str]
+    provider_id: str
     resource_ids: list[str]
-
-    @validator('schema_id')
-    def validate_schema_id(cls, schema_id):
-        if schema_id not in (ODPMetadataSchema.SAEON_DATACITE4, ODPMetadataSchema.SAEON_ISO19115):
-            raise ValueError("SAEON metadata schema required")
-
-        return schema_id
