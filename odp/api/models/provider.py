@@ -8,12 +8,15 @@ class ProviderModel(BaseModel):
     key: str
     name: str
     package_count: int
-    resource_count: int
     collection_keys: dict[str, str] = Field(..., title='Collection id:key pairs')
+    timestamp: str
+
+
+class ProviderDetailModel(ProviderModel):
+    resource_count: int
+    client_ids: list[str]
     user_ids: list[str]
     user_names: dict[str, str] = Field(..., title='User id:name pairs')
-    client_ids: list[str]
-    timestamp: str
 
 
 class ProviderModelIn(BaseModel):
