@@ -23,6 +23,10 @@ class ODPSystemRole(str, Enum):
     DEFAULT = 'Default'
 
 
+class ODPPackageTag(str, Enum):
+    DOI = 'Package.DOI'
+
+
 class ODPCollectionTag(str, Enum):
     PUBLISHED = 'Collection.Published'
     FROZEN = 'Collection.Frozen'

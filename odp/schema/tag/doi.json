@@ -1,0 +1,14 @@
+{
+    "title": "Schema for a DOI tag",
+    "$id": "https://odp.saeon.ac.za/schema/tag/doi",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "doi": {
+            "type": "string",
+            "pattern": "^10\\.\\d{4,}(\\.\\d+)*/[-._;()/:a-zA-Z0-9]+$"
+        }
+    },
+    "required": ["doi"],
+    "additionalProperties": false
+}
