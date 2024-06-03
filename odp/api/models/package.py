@@ -3,6 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from odp.api.models.resource import ResourceModel
+from odp.api.models.tag import TagInstanceModel
 from odp.const.db import PackageStatus
 
 
@@ -18,6 +19,7 @@ class PackageModel(BaseModel):
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
+    tags: list[TagInstanceModel]
 
 
 class PackageDetailModel(PackageModel):
