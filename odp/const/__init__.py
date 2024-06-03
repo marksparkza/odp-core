@@ -55,6 +55,7 @@ class ODPMetadataSchema(str, Enum):
 
 
 class ODPTagSchema(str, Enum):
+    DOI = 'Tag.DOI'
     GENERIC = 'Tag.Generic'
     KEYWORD = 'Tag.Keyword'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
