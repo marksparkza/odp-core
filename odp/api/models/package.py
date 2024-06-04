@@ -19,11 +19,11 @@ class PackageModel(BaseModel):
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
-    tags: list[TagInstanceModel]
 
 
 class PackageDetailModel(PackageModel):
     resources: list[ResourceModel]
+    tags: list[TagInstanceModel]
 
 
 class PackageModelIn(BaseModel):
