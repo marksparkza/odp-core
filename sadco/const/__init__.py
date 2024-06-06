@@ -26,3 +26,14 @@ class DataType(str, Enum):
     WATERNUTRIENTSANDCHEMISTRY = 'water_nutrients_and_chemistry'
     WEATHER = 'weather'
     CURRENTS = 'currents'
+
+
+class SADCOScope(str, Enum):
+    """Auth Scopes."""
+    SURVEYS_READ = 'sadco.surveys:read'
+    HYDRO_READ = 'sadco.hydro:read'
+    CURRENTS_READ = 'sadco.currents:read'
+    WEATHER_READ = 'sadco.weather:read'
+    WAVES_READ = 'sadco.waves:read'
+    ECHO_SOUNDING_READ = 'sadco.echo-sounding:read'
+    UTR_READ = 'sadco.utr:read'
