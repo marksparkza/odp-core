@@ -55,8 +55,9 @@ class ODPBaseClient:
             return_bytes: bool = False,
             **params: Any,
     ) -> Any:
+        api_url = params.pop('api_url', self.api_url)
         try:
-            r = self._send_request(method, self.api_url + path, data, params)
+            r = self._send_request(method, api_url + path, data, params)
             r.raise_for_status()
             return r.content if return_bytes else r.json()
 
