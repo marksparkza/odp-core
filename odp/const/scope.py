@@ -47,6 +47,7 @@ class ODPScope(str, Enum):
     USER_ADMIN = 'odp.user:admin'
     USER_READ = 'odp.user:read'
     VOCABULARY_INFRASTRUCTURE = 'odp.vocabulary:infrastructure'
+    VOCABULARY_INSTITUTION = 'odp.vocabulary:institution'
     VOCABULARY_PROJECT = 'odp.vocabulary:project'
     VOCABULARY_SDG = 'odp.vocabulary:sdg'
     VOCABULARY_READ = 'odp.vocabulary:read'
