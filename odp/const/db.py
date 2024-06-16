@@ -6,6 +6,12 @@ class DBEnum(str, Enum):
         return repr(self.value)
 
 
+class KeywordStatus(DBEnum):
+    proposed = 'proposed'
+    approved = 'approved'
+    retracted = 'retracted'
+
+
 class PackageStatus(DBEnum):
     pending = 'pending'
     submitted = 'submitted'
@@ -15,7 +21,8 @@ class PackageStatus(DBEnum):
 class SchemaType(DBEnum):
     metadata = 'metadata'
     tag = 'tag'
-    vocabulary = 'vocabulary'
+    keyword = 'keyword'
+    vocabulary = 'vocabulary'  # deprecated
 
 
 class ScopeType(DBEnum):
