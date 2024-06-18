@@ -9,7 +9,7 @@ class DBEnum(str, Enum):
 class KeywordStatus(DBEnum):
     proposed = 'proposed'
     approved = 'approved'
-    retracted = 'retracted'
+    rejected = 'rejected'
 
 
 class PackageStatus(DBEnum):
