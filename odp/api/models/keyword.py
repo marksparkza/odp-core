@@ -12,7 +12,10 @@ class KeywordModel(BaseModel):
     data: dict
     status: KeywordStatus
     schema_id: Optional[str] = Field(None, title="The keyword's validating schema")
-    keywords: Optional[list[KeywordModel]]
+
+
+class KeywordHierarchyModel(KeywordModel):
+    child_keywords: list[KeywordHierarchyModel]
 
 
 class KeywordModelIn(BaseModel):
@@ -21,5 +24,5 @@ class KeywordModelIn(BaseModel):
 
 class KeywordModelAdmin(KeywordModelIn):
     status: KeywordStatus
-    schema_id: Optional[str] = Field(None, title="The validating schema for sub-keywords "
-                                                 "(inherited from the parent by default)")
+    child_schema_id: Optional[str] = Field(
+        None, title='Validating schema for child keywords (inherited from the parent by default)')
