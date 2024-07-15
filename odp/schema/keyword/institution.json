@@ -5,7 +5,7 @@
     "description": "Schema for a term in the institution vocabulary",
     "type": "object",
     "required": [
-        "title", "abbr"
+        "title"
     ],
     "properties": {
         "title": {
@@ -16,15 +16,6 @@
         },
         "ror": {
             "type": "string", "format": "ror"
-        },
-        "url": {
-            "type": "string", "format": "uri"
-        },
-        "locations": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            }
         }
     },
     "additionalProperties": false
