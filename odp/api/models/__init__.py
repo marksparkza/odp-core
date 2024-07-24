@@ -24,6 +24,7 @@ from .catalog import (
 )
 from .client import ClientModel, ClientModelIn
 from .collection import CollectionModel, CollectionModelIn
+from .keyword import KeywordHierarchyModel, KeywordModel, KeywordModelAdmin, KeywordModelIn
 from .package import PackageDetailModel, PackageModel, PackageModelIn
 from .paging import Page
 from .provider import ProviderDetailModel, ProviderModel, ProviderModelIn
