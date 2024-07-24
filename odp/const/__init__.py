@@ -17,9 +17,6 @@ SID_REGEX = r'^[-._;()/:a-zA-Z0-9]+$'
 # an ROR ID, from https://ror.readme.io/docs/identifier
 ROR_REGEX = r'^https://ror\.org/0[a-hj-km-np-tv-z|0-9]{6}[0-9]{2}$'
 
-# hierarchical keyword identifiers
-KEYWORD_REGEX = r'^[\w.]+(/[\w.]+)*$'
-
 SAEON_EMAIL_DOMAINS = ['saeon.ac.za', 'saeon.nrf.ac.za']
 
 

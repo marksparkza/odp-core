@@ -8,9 +8,10 @@ from odp.const.db import KeywordStatus
 
 
 class KeywordModel(BaseModel):
-    key: str
+    id: str
     data: dict
     status: KeywordStatus
+    parent_id: Optional[str] = Field(None, title='Parent keyword (vocabulary) identifier')
     schema_id: Optional[str] = Field(None, title="The keyword's validating schema")
 
 
@@ -20,6 +21,7 @@ class KeywordHierarchyModel(KeywordModel):
 
 class KeywordModelIn(BaseModel):
     data: dict
+    parent_id: str = Field(..., min_length=1, title='Parent keyword (vocabulary) identifier')
 
 
 class KeywordModelAdmin(KeywordModelIn):
