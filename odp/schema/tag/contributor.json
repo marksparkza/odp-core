@@ -1,0 +1,112 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/contributor",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Contributor",
+    "description": "Schema for a contributor tag",
+    "type": "object",
+    "required": [
+        "name", "role", "is_author"
+    ],
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "orcid": {
+            "type": "string", "format": "orcid"
+        },
+        "is_author": {
+            "type": "boolean"
+        },
+        "role": {
+            "$comment": "Adapted from ISO19115 responsiblePartyRole; all except publisher and user.",
+            "enum": [
+                "principalInvestigator",
+                "originator",
+                "custodian",
+                "distributor",
+                "owner",
+                "pointOfContact",
+                "processor",
+                "resourceProvider"
+            ]
+        },
+        "affiliations": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string",
+                        "keyword": "https://odp.saeon.ac.za/schema/keyword/institution"
+                    },
+                    {
+                        "type": "object",
+                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
+                    }
+                ]
+            }
+        }
+    },
+    "if": {
+        "properties": {
+            "is_author": {"const": true}
+        }
+    },
+    "then": {
+        "properties": {
+            "role": {"enum": ["principalInvestigator", "originator"]}
+        }
+    },
+    "else": {
+        "properties": {
+            "role": {"not": {"enum": ["principalInvestigator", "originator"]}}
+        }
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/creators/-",
+            "t9nCondition": {
+                "properties": {
+                    "is_author": {"const": true}
+                }
+            },
+            "t9nObject": {
+                "name": {"t9nSource": "0/name"},
+                "affiliation": {
+                    "t9nArray": {
+                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
+                    }
+                }
+            }
+        },
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/contributors/-",
+            "t9nCondition": {
+                "properties": {
+                    "is_author": {"const": false}
+                }
+            },
+            "t9nObject": {
+                "name": {"t9nSource": "0/name"},
+                "affiliation": {
+                    "t9nArray": {
+                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
+                    }
+                },
+                "contributorType": {
+                    "t9nSource": "0/role",
+                    "t9nFilter": {
+                        "custodian": "DataManager",
+                        "distributor": "Distributor",
+                        "owner": "RightsHolder",
+                        "pointOfContact": "ContactPerson",
+                        "processor": "ProjectMember",
+                        "resourceProvider": "HostingInstitution"
+                    }
+                }
+            }
+        }
+    ]
+}

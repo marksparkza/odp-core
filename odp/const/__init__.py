@@ -28,6 +28,7 @@ class ODPSystemRole(str, Enum):
 
 class ODPPackageTag(str, Enum):
     DOI = 'Package.DOI'
+    CONTRIBUTOR = 'Package.Contributor'
 
 
 class ODPCollectionTag(str, Enum):
@@ -61,6 +62,7 @@ class ODPTagSchema(str, Enum):
     DOI = 'Tag.DOI'
     GENERIC = 'Tag.Generic'
     KEYWORD = 'Tag.Keyword'
+    CONTRIBUTOR = 'Tag.Contributor'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
     COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'
