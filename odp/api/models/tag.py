@@ -21,6 +21,7 @@ class TagInstanceModel(BaseModel):
     tag_id: str
     user_id: Optional[str]
     user_name: Optional[str]
+    user_email: Optional[str]
     data: dict[str, Any]
     timestamp: str
     cardinality: TagCardinality
