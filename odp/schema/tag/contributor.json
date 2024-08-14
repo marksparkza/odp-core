@@ -33,16 +33,8 @@
         "affiliations": {
             "type": "array",
             "items": {
-                "anyOf": [
-                    {
-                        "type": "string",
-                        "keyword": "https://odp.saeon.ac.za/schema/keyword/institution"
-                    },
-                    {
-                        "type": "object",
-                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
-                    }
-                ]
+                "type": "string",
+                "keyword": "https://odp.saeon.ac.za/schema/keyword/institution"
             }
         }
     },
