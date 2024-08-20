@@ -11,7 +11,6 @@ class PackageModel(BaseModel):
     id: str
     title: str
     status: PackageStatus
-    notes: Optional[str]
     timestamp: str
     provider_id: str
     provider_key: str
@@ -28,6 +27,5 @@ class PackageDetailModel(PackageModel):
 
 class PackageModelIn(BaseModel):
     title: str
-    notes: Optional[str]
     provider_id: str
     resource_ids: list[str]
