@@ -26,6 +26,7 @@ class ODPScope(str, Enum):
     PACKAGE_WRITE = 'odp.package:write'
     PACKAGE_DOI = 'odp.package:doi'
     PROVIDER_ADMIN = 'odp.provider:admin'
+    PROVIDER_READ_ALL = 'odp.provider:read_all'
     PROVIDER_READ = 'odp.provider:read'
     RECORD_ADMIN = 'odp.record:admin'
     RECORD_READ = 'odp.record:read'
@@ -71,6 +72,7 @@ class ODPScope(str, Enum):
             return 'collection'
 
         if (
+                self.value.startswith('odp.provider:') or
                 self.value.startswith('odp.package:') or
                 self.value.startswith('odp.resource:')
         ) and not (
