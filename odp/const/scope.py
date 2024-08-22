@@ -5,6 +5,9 @@ from typing import Optional
 
 class ODPScope(str, Enum):
     ARCHIVE_READ = 'odp.archive:read'
+    ARCHIVE_SAEON_REPOSITORY = 'odp.archive:saeon_repository'
+    ARCHIVE_SAEON_OBSERVATIONS = 'odp.archive:saeon_observations'
+    ARCHIVE_MIMS = 'odp.archive:mims'
     CATALOG_READ = 'odp.catalog:read'
     CATALOG_SEARCH = 'odp.catalog:search'
     CLIENT_ADMIN = 'odp.client:admin'

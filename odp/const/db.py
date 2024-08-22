@@ -6,6 +6,12 @@ class DBEnum(str, Enum):
         return repr(self.value)
 
 
+class ArchiveAdapter(DBEnum):
+    filesystem = 'filesystem'
+    nextcloud = 'nextcloud'
+    website = 'website'
+
+
 class KeywordStatus(DBEnum):
     proposed = 'proposed'
     approved = 'approved'
