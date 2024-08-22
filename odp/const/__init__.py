@@ -71,8 +71,6 @@ class ODPTagSchema(str, Enum):
 
 
 class ODPArchive(str, Enum):
-    ODP_UPLOAD = 'ODP.Upload'
-    MIMS_UPLOAD = 'MIMS.Upload'
     MIMS_ARCHIVE = 'MIMS.Archive'
     SAEON_OBSERVATIONS = 'SAEON.Observations'
     SAEON_REPOSITORY = 'SAEON.Repository'
