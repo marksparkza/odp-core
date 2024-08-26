@@ -4,12 +4,12 @@
     "title": "Geographic Bounding Box",
     "description": "Schema for a geographic bounding box tag",
     "type": "object",
-    "required": ["westBoundLongitude", "eastBoundLongitude", "southBoundLatitude", "northBoundLatitude"],
+    "required": ["west", "east", "south", "north"],
     "properties": {
-        "westBoundLongitude": {"type": "number", "minimum": -180, "maximum": 180},
-        "eastBoundLongitude": {"type": "number", "minimum": -180, "maximum": 180},
-        "southBoundLatitude": {"type": "number", "minimum": -90, "maximum": 90},
-        "northBoundLatitude": {"type": "number", "minimum": -90, "maximum": 90}
+        "west": {"type": "number", "minimum": -180, "maximum": 180},
+        "east": {"type": "number", "minimum": -180, "maximum": 180},
+        "south": {"type": "number", "minimum": -90, "maximum": 90},
+        "north": {"type": "number", "minimum": -90, "maximum": 90}
     },
     "additionalProperties": false,
     "translations": [
@@ -19,10 +19,10 @@
             "t9nObject": {
                 "geoLocationBox": {
                     "t9nObject": {
-                        "westBoundLongitude": {"t9nSource": "0/boundingBox/westBoundLongitude"},
-                        "eastBoundLongitude": {"t9nSource": "0/boundingBox/eastBoundLongitude"},
-                        "southBoundLatitude": {"t9nSource": "0/boundingBox/southBoundLatitude"},
-                        "northBoundLatitude": {"t9nSource": "0/boundingBox/northBoundLatitude"}
+                        "westBoundLongitude": {"t9nSource": "0/west"},
+                        "eastBoundLongitude": {"t9nSource": "0/east"},
+                        "southBoundLatitude": {"t9nSource": "0/south"},
+                        "northBoundLatitude": {"t9nSource": "0/north"}
                     }
                 }
             }
