@@ -1,0 +1,31 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/bounding_box",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Geographic Bounding Box",
+    "description": "Schema for a geographic bounding box tag",
+    "type": "object",
+    "required": ["westBoundLongitude", "eastBoundLongitude", "southBoundLatitude", "northBoundLatitude"],
+    "properties": {
+        "westBoundLongitude": {"type": "number", "minimum": -180, "maximum": 180},
+        "eastBoundLongitude": {"type": "number", "minimum": -180, "maximum": 180},
+        "southBoundLatitude": {"type": "number", "minimum": -90, "maximum": 90},
+        "northBoundLatitude": {"type": "number", "minimum": -90, "maximum": 90}
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/geoLocations/-",
+            "t9nObject": {
+                "geoLocationBox": {
+                    "t9nObject": {
+                        "westBoundLongitude": {"t9nSource": "0/boundingBox/westBoundLongitude"},
+                        "eastBoundLongitude": {"t9nSource": "0/boundingBox/eastBoundLongitude"},
+                        "southBoundLatitude": {"t9nSource": "0/boundingBox/southBoundLatitude"},
+                        "northBoundLatitude": {"t9nSource": "0/boundingBox/northBoundLatitude"}
+                    }
+                }
+            }
+        }
+    ]
+}
