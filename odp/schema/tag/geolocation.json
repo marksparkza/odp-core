@@ -1,15 +1,30 @@
 {
-    "$id": "https://odp.saeon.ac.za/schema/tag/bounding_box",
+    "$id": "https://odp.saeon.ac.za/schema/tag/geolocation",
     "$schema": "https://jschon.dev/meta/translation/schema",
-    "title": "Geographic Bounding Box",
-    "description": "Schema for a geographic bounding box tag",
+    "title": "Geographic Location",
+    "description": "Schema for a geographic location tag. Describes either a point or a bounding box.",
     "type": "object",
-    "required": ["west", "east", "south", "north"],
+    "required": ["place", "shape", "east", "north"],
     "properties": {
+        "place": {"type": "string"},
+        "shape": {"enum": ["point", "box"]},
         "west": {"type": "number", "minimum": -180, "maximum": 180},
         "east": {"type": "number", "minimum": -180, "maximum": 180},
         "south": {"type": "number", "minimum": -90, "maximum": 90},
         "north": {"type": "number", "minimum": -90, "maximum": 90}
+    },
+    "if": {
+        "properties": {
+            "shape": {"const": "box"}
+        }
+    },
+    "then": {
+        "required": ["west", "south"]
+    },
+    "else": {
+        "properties": {
+            "west": false, "south": false
+        }
     },
     "additionalProperties": false,
     "translations": [

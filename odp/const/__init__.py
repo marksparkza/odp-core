@@ -29,7 +29,7 @@ class ODPSystemRole(str, Enum):
 class ODPPackageTag(str, Enum):
     DOI = 'Package.DOI'
     CONTRIBUTOR = 'Package.Contributor'
-    BOUNDING_BOX = 'Package.BoundingBox'
+    GEOLOCATION = 'Package.GeoLocation'
 
 
 class ODPCollectionTag(str, Enum):
@@ -64,7 +64,7 @@ class ODPTagSchema(str, Enum):
     GENERIC = 'Tag.Generic'
     KEYWORD = 'Tag.Keyword'
     CONTRIBUTOR = 'Tag.Contributor'
-    BOUNDING_BOX = 'Tag.BoundingBox'
+    GEOLOCATION = 'Tag.GeoLocation'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
     COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'
