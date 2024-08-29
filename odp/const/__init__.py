@@ -30,6 +30,7 @@ class ODPPackageTag(str, Enum):
     DOI = 'Package.DOI'
     CONTRIBUTOR = 'Package.Contributor'
     GEOLOCATION = 'Package.GeoLocation'
+    DATERANGE = 'Package.DateRange'
 
 
 class ODPCollectionTag(str, Enum):
@@ -65,6 +66,7 @@ class ODPTagSchema(str, Enum):
     KEYWORD = 'Tag.Keyword'
     CONTRIBUTOR = 'Tag.Contributor'
     GEOLOCATION = 'Tag.GeoLocation'
+    DATERANGE = 'Tag.DateRange'
     COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
     COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'

@@ -1,0 +1,27 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/daterange",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Date Range",
+    "description": "Schema for a date range tag.",
+    "type": "object",
+    "required": ["start", "end"],
+    "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"}
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/dates/-",
+            "t9nObject": {
+                "geoLocationBox": {
+                    "t9nObject": {
+                        "date": {"t9nConcat": ["0/start", "0/end"], "t9nSep": "/"},
+                        "dateType": {"t9nConst": "Valid"}
+                    }
+                }
+            }
+        }
+    ]
+}
