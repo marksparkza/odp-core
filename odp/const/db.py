@@ -24,6 +24,11 @@ class PackageStatus(DBEnum):
     archived = 'archived'
 
 
+class HashAlgorithm(DBEnum):
+    md5 = 'md5'
+    sha256 = 'sha256'
+
+
 class SchemaType(DBEnum):
     metadata = 'metadata'
     tag = 'tag'
