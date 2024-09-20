@@ -9,6 +9,7 @@ from odp.const.db import PackageStatus
 
 class PackageModel(BaseModel):
     id: str
+    key: str
     title: str
     status: PackageStatus
     timestamp: str
