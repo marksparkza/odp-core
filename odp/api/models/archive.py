@@ -2,7 +2,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from odp.const.db import ArchiveAdapter
+from odp.const.db import ArchiveAdapter, HashAlgorithm
 
 
 class ArchiveModel(BaseModel):
@@ -17,12 +17,13 @@ class ArchiveResourceModel(BaseModel):
     archive_id: str
     resource_id: str
     path: str
-    title: str
+    title: Optional[str]
     description: Optional[str]
     filename: Optional[str]
     mimetype: Optional[str]
     size: Optional[int]
-    md5: Optional[str]
+    hash: Optional[str]
+    hash_algorithm: Optional[HashAlgorithm]
     timestamp: str
     provider_id: str
     provider_key: str
