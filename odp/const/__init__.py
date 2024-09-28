@@ -74,12 +74,6 @@ class ODPTagSchema(str, Enum):
     RECORD_MIGRATED = 'Tag.Record.Migrated'
 
 
-class ODPArchive(str, Enum):
-    MIMS_ARCHIVE = 'MIMS.Archive'
-    SAEON_OBSERVATIONS = 'SAEON.Observations'
-    SAEON_REPOSITORY = 'SAEON.Repository'
-
-
 class ODPCatalog(str, Enum):
     SAEON = 'SAEON'
     DATACITE = 'DataCite'
