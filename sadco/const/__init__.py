@@ -45,3 +45,5 @@ class SADCOScope(str, Enum):
     WAVES_DOWNLOAD = 'sadco.waves:download'
     UTR_DOWNLOAD = 'sadco.utr:download'
     VOS_DOWNLOAD = 'sadco.vos:download'
+    DOWNLOAD_READ = 'sadco.download:read'
+    DOWNLOAD_ADMIN = 'sadco.download:admin'
