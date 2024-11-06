@@ -1,4 +1,4 @@
-from .archive import ArchiveModel, ArchiveResourceModel
+from .archive import ArchiveModel
 from .audit import (
     AuditModel,
     CollectionAuditModel,
@@ -29,7 +29,7 @@ from .package import PackageDetailModel, PackageModel, PackageModelIn
 from .paging import Page
 from .provider import ProviderDetailModel, ProviderModel, ProviderModelIn
 from .record import RecordModel, RecordModelIn
-from .resource import ResourceModel, ResourceModelIn
+from .resource import ResourceModel
 from .role import RoleModel, RoleModelIn
 from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
