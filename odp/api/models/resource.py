@@ -17,4 +17,5 @@ class ResourceModel(BaseModel):
     timestamp: str
     provider_id: str
     provider_key: str
-    archive_paths: dict[str, str] = Field(..., title='Mapping of archive id to resource path')
+    archive_paths: dict[str, str] = Field(..., title='Mapping of archive id to resource path (relative to archive url)')
+    package_paths: dict[str, str] = Field(..., title='Mapping of package id to resource path (relative to package root)')
