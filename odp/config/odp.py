@@ -57,7 +57,8 @@ class ODPIdentityConfig(BaseConfig):
         env_prefix = 'ODP_IDENTITY_'
 
     FLASK_SECRET: str  # Flask secret key
-    NCCRD_CLIENT_ID: str = None  # OAuth2 client ID that will trigger NCCRD UI branding
+    NCCRD_CLIENT_ID: str = None # OAuth2 client ID that will trigger NCCRD UI branding
+    SADCO_CLIENT_ID: str = None # OAuth2 client ID that will trigger SADCO UI branding
 
 
 class ODPMailConfig(BaseConfig):
