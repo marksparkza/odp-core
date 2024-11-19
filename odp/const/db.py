@@ -22,6 +22,7 @@ class PackageStatus(DBEnum):
     pending = 'pending'
     submitted = 'submitted'
     archived = 'archived'
+    deleted = 'deleted'
 
 
 class HashAlgorithm(DBEnum):

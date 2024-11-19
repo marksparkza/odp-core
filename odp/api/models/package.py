@@ -29,4 +29,3 @@ class PackageDetailModel(PackageModel):
 class PackageModelIn(BaseModel):
     title: str
     provider_id: str
-    resource_ids: list[str]
