@@ -31,6 +31,7 @@ class ODPPackageTag(str, Enum):
     CONTRIBUTOR = 'Package.Contributor'
     GEOLOCATION = 'Package.GeoLocation'
     DATERANGE = 'Package.DateRange'
+    SDG = 'Package.SDG'
 
 
 class ODPCollectionTag(str, Enum):

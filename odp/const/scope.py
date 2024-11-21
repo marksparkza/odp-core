@@ -28,6 +28,7 @@ class ODPScope(str, Enum):
     PACKAGE_READ = 'odp.package:read'
     PACKAGE_WRITE = 'odp.package:write'
     PACKAGE_DOI = 'odp.package:doi'
+    PACKAGE_SDG = 'odp.package:sdg'
     PROVIDER_ADMIN = 'odp.provider:admin'
     PROVIDER_READ_ALL = 'odp.provider:read_all'
     PROVIDER_READ = 'odp.provider:read'
