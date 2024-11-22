@@ -47,3 +47,9 @@ class SADCOScope(str, Enum):
     VOS_DOWNLOAD = 'sadco.vos:download'
     DOWNLOAD_READ = 'sadco.download:read'
     DOWNLOAD_ADMIN = 'sadco.download:admin'
+
+
+class SADCORole(str, Enum):
+    """User Roles"""
+    SADCO_USER = 'SADCO.User'
+    SADCO_ADMIN = 'SADCO.Admin'
