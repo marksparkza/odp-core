@@ -74,9 +74,14 @@ class HydraAdminAPI:
         return [HydraClient.from_oauth2_client(oauth2_client)
                 for oauth2_client in oauth2_clients]
 
-    def get_client(self, id: str) -> HydraClient:
+    def get_client(self, id: str) -> HydraClient | None:
         """Get an OAuth2 client configuration from Hydra."""
-        oauth2_client = self._api.get_o_auth2_client(id=id)
+        try:
+            oauth2_client = self._api.get_o_auth2_client(id=id)
+        except ApiException as e:
+            if e.status == 404:
+                return None
+            raise
         return HydraClient.from_oauth2_client(oauth2_client)
 
     def create_or_update_client(

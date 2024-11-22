@@ -21,6 +21,14 @@ class ClientModel(BaseModel):
     client_credentials_grant_access_token_lifespan: Optional[str]
 
 
+class OrphanedClientModel(BaseModel):
+    id: str
+    name: str
+    scope_ids: list[str]
+    collection_specific: bool
+    collection_keys: dict[str, str]
+
+
 class ClientModelIn(BaseModel):
     id: str = Field(..., regex=ID_REGEX)
     name: str
