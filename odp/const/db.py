@@ -16,6 +16,7 @@ class KeywordStatus(DBEnum):
     proposed = 'proposed'
     approved = 'approved'
     rejected = 'rejected'
+    obsolete = 'obsolete'
 
 
 class PackageStatus(DBEnum):
