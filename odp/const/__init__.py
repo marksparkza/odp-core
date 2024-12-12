@@ -87,6 +87,7 @@ class ODPKeyword(str, Enum):
 
 class ODPKeywordSchema(str, Enum):
     INSTITUTION = 'Keyword.Institution'
+    SDG = 'Keyword.SDG'
 
 
 class ODPVocabulary(str, Enum):
@@ -98,4 +99,3 @@ class ODPVocabulary(str, Enum):
 class ODPVocabularySchema(str, Enum):
     INFRASTRUCTURE = 'Vocabulary.Infrastructure'
     PROJECT = 'Vocabulary.Project'
-    SDG = 'Vocabulary.SDG'

@@ -1,0 +1,32 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/keyword/sdg",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "SDG",
+    "description": "Schema for a term in the SDG vocabulary.",
+    "type": "object",
+    "anyOf": [
+        {
+            "properties": {
+                "key": {"pattern": "^\\d+$"},
+                "title": {"type": "string"},
+                "goal": {"type": "string"}
+            },
+            "required": ["key", "title", "goal"]
+        },
+        {
+            "properties": {
+                "key": {"pattern": "^\\d+\\.\\w+$"},
+                "target": {"type": "string"}
+            },
+            "required": ["key", "target"]
+        },
+        {
+            "properties": {
+                "key": {"pattern": "^\\d+\\.\\w+.\\w+$"},
+                "indicator": {"type": "string"}
+            },
+            "required": ["key", "indicator"]
+        }
+    ],
+    "unevaluatedProperties": false
+}
