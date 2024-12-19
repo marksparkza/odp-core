@@ -2,16 +2,19 @@ from __future__ import annotations
 
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, root_validator
 
 from odp.const.db import KeywordStatus
 
 
 class KeywordModel(BaseModel):
-    id: str
+    vocabulary_id: str
+    id: int
+    key: str
     data: dict
     status: KeywordStatus
-    parent_id: Optional[str] = Field(None, title='Parent keyword (vocabulary) identifier')
+    parent_id: Optional[int] = Field(None, title='Parent keyword id')
+    parent_key: Optional[str] = Field(None, title='Parent keyword')
     schema_id: Optional[str] = Field(None, title="The keyword's validating schema")
 
 
@@ -20,11 +23,20 @@ class KeywordHierarchyModel(KeywordModel):
 
 
 class KeywordModelIn(BaseModel):
-    data: dict
-    parent_id: str = Field(..., min_length=1, title='Parent keyword (vocabulary) identifier')
+    key: str = Field(..., title='The keyword; copied to data["key"]')
+    data: dict = Field(..., title='Keyword data; validated against vocabulary schema')
+    parent_id: Optional[int] = Field(None, title='Parent keyword id')
+
+    @root_validator
+    def set_data_key(cls, values):
+        """Copy `key` into `data` post-validation."""
+        try:
+            values['data']['key'] = values['key']
+        except KeyError:
+            pass  # ignore - field validation already failed
+
+        return values
 
 
 class KeywordModelAdmin(KeywordModelIn):
     status: KeywordStatus
-    child_schema_id: Optional[str] = Field(
-        None, title='Validating schema for child keywords (inherited from the parent by default)')

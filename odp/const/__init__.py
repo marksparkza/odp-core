@@ -81,10 +81,6 @@ class ODPCatalog(str, Enum):
     MIMS = 'MIMS'
 
 
-class ODPKeyword(str, Enum):
-    INSTITUTION = 'Institution'
-
-
 class ODPKeywordSchema(str, Enum):
     INSTITUTION = 'Keyword.Institution'
     SDG = 'Keyword.SDG'
@@ -92,6 +88,7 @@ class ODPKeywordSchema(str, Enum):
 
 class ODPVocabulary(str, Enum):
     INFRASTRUCTURE = 'Infrastructure'
+    INSTITUTION = 'Institution'
     PROJECT = 'Project'
     SDG = 'SDG'
 

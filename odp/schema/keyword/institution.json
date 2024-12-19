@@ -5,17 +5,21 @@
     "description": "Schema for a term in the institution vocabulary",
     "type": "object",
     "required": [
-        "title"
+        "key"
     ],
     "properties": {
-        "title": {
-            "type": "string"
+        "key": {
+            "type": "string",
+            "description": "Full name of the institution"
         },
         "abbr": {
-            "type": "string"
+            "type": "string",
+            "description": "Acronym or abbreviated form of the institution name"
         },
         "ror": {
-            "type": "string", "format": "ror"
+            "type": "string",
+            "pattern": "^https://ror\\.org/0[a-hj-km-np-tv-z|0-9]{6}[0-9]{2}$",
+            "description": "Research Organization Registry (ROR) identifier"
         }
     },
     "additionalProperties": false
