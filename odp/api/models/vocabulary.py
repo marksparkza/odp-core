@@ -11,6 +11,7 @@ class VocabularyModel(BaseModel):
     schema_id: str
     schema_uri: str
     static: bool
+    keyword_count: int
 
 
 class VocabularyDetailModel(VocabularyModel):

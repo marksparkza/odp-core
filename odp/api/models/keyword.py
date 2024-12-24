@@ -15,7 +15,16 @@ class KeywordModel(BaseModel):
     status: KeywordStatus
     parent_id: Optional[int] = Field(None, title='Parent keyword id')
     parent_key: Optional[str] = Field(None, title='Parent keyword')
-    schema_id: Optional[str] = Field(None, title="The keyword's validating schema")
+
+
+class KeywordAncestorModel(BaseModel):
+    vocabulary_id: str
+    id: int
+    key: str
+    data: dict
+    status: KeywordStatus
+    ids: list[int] = Field(..., title='Keyword id hierarchy, from root to self')
+    keys_: list[str] = Field(..., title='Keyword key hierarchy, from root to self')
 
 
 class KeywordHierarchyModel(KeywordModel):
