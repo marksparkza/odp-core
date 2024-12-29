@@ -13,7 +13,6 @@ class ProviderModel(BaseModel):
 
 
 class ProviderDetailModel(ProviderModel):
-    resource_count: int
     client_ids: list[str]
     user_ids: list[str]
     user_names: dict[str, str] = Field(..., title='User id:name pairs')
