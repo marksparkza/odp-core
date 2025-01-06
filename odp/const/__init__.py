@@ -68,8 +68,6 @@ class ODPTagSchema(str, Enum):
     CONTRIBUTOR = 'Tag.Contributor'
     GEOLOCATION = 'Tag.GeoLocation'
     DATERANGE = 'Tag.DateRange'
-    COLLECTION_INFRASTRUCTURE = 'Tag.Collection.Infrastructure'
-    COLLECTION_PROJECT = 'Tag.Collection.Project'
     RECORD_QC = 'Tag.Record.QC'
     RECORD_EMBARGO = 'Tag.Record.Embargo'
     RECORD_MIGRATED = 'Tag.Record.Migrated'
