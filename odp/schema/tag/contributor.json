@@ -31,11 +31,9 @@
             ]
         },
         "affiliations": {
+            "$comment": "Array of institution keyword codes.",
             "type": "array",
-            "items": {
-                "type": "string",
-                "keyword": "https://odp.saeon.ac.za/schema/keyword/institution"
-            }
+            "items": {"type": "integer", "odpKeyword": "Institution"}
         }
     },
     "if": {
