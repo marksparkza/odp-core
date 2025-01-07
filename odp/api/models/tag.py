@@ -26,8 +26,12 @@ class TagInstanceModel(BaseModel):
     timestamp: str
     cardinality: TagCardinality
     public: bool
+    vocabulary_id: Optional[str]
+    keyword_id: Optional[int]
+    keyword: Optional[str]
 
 
 class TagInstanceModelIn(BaseModel):
     tag_id: str
     data: dict[str, Any]
+    keyword_id: Optional[int]
