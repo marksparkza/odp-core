@@ -82,3 +82,7 @@ class ODPScope(str, Enum):
                 self.value.endswith(':read_all')
         ):
             return 'provider'
+
+    @cached_property
+    def is_admin(self) -> bool:
+        return self.value.endswith(':admin')
