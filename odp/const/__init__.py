@@ -50,7 +50,6 @@ class ODPRecordTag(str, Enum):
     NOTSEARCHABLE = 'Record.NotSearchable'
     RETRACTED = 'Record.Retracted'
     NOTE = 'Record.Note'
-    SDG = 'Record.SDG'
 
 
 class ODPMetadataSchema(str, Enum):

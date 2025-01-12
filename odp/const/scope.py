@@ -42,7 +42,6 @@ class ODPScope(str, Enum):
     RECORD_NOSEARCH = 'odp.record:nosearch'
     RECORD_RETRACT = 'odp.record:retract'
     RECORD_NOTE = 'odp.record:note'
-    RECORD_SDG = 'odp.record:sdg'
     RESOURCE_ADMIN = 'odp.resource:admin'
     RESOURCE_READ_ALL = 'odp.resource:read_all'
     RESOURCE_READ = 'odp.resource:read'
