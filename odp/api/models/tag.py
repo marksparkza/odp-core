@@ -27,8 +27,10 @@ class TagInstanceModel(BaseModel):
     cardinality: TagCardinality
     public: bool
     vocabulary_id: Optional[str]
+    keyword_id: Optional[int]
+    keyword: Optional[str]
     keyword_ids: Optional[list[int]] = Field(None, title='Keyword id hierarchy, from root to selected')
-    keyword_keys: Optional[list[str]] = Field(None, title='Keyword key hierarchy, from root to selected')
+    keywords: Optional[list[str]] = Field(None, title='Keyword key hierarchy, from root to selected')
 
 
 class TagInstanceModelIn(BaseModel):
