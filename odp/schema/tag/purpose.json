@@ -1,0 +1,24 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/purpose",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Purpose",
+    "description": "Schema for a purpose tag.",
+    "type": "object",
+    "required": ["purpose"],
+    "properties": {
+        "purpose": {"type": "string"}
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+                "t9nObject": {
+                    "description": {},
+                    "descriptionType": {"t9nConst": "Other"}
+                }
+            }
+        }
+    ]
+}

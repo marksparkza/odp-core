@@ -32,6 +32,9 @@ class ODPPackageTag(str, Enum):
     GEOLOCATION = 'Package.GeoLocation'
     DATERANGE = 'Package.DateRange'
     SDG = 'Package.SDG'
+    ABSTRACT = 'Package.Abstract'
+    LINEAGE = 'Package.Lineage'
+    PURPOSE = 'Package.Purpose'
 
 
 class ODPCollectionTag(str, Enum):
@@ -67,6 +70,9 @@ class ODPTagSchema(str, Enum):
     CONTRIBUTOR = 'Tag.Contributor'
     GEOLOCATION = 'Tag.GeoLocation'
     DATERANGE = 'Tag.DateRange'
+    ABSTRACT = 'Tag.Abstract'
+    LINEAGE = 'Tag.Lineage'
+    PURPOSE = 'Tag.Purpose'
     RECORD_QC = 'Tag.Record.QC'
     RECORD_EMBARGO = 'Tag.Record.Embargo'
     RECORD_MIGRATED = 'Tag.Record.Migrated'

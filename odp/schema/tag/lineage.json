@@ -1,0 +1,24 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/lineage",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Lineage",
+    "description": "Schema for a lineage tag.",
+    "type": "object",
+    "required": ["lineage"],
+    "properties": {
+        "lineage": {"type": "string"}
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "saeon/datacite4",
+            "t9nTarget": "/descriptions",
+            "t9nArray": {
+                "t9nObject": {
+                    "description": {},
+                    "descriptionType": {"t9nConst": "Methods"}
+                }
+            }
+        }
+    ]
+}
