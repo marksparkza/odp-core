@@ -1,3 +1,38 @@
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "odp"
+description = "Core Python library for SAEON Open Data Platform systems development."
+authors = [
+    { name = "South African Environmental Observation Network", email = "development@saeon.nrf.ac.za" },
+]
+readme = "README.md"
+license = { text = "AGPL-3.0-or-later" }
+requires-python = "== 3.10.*"
+dependencies = [
+    "authlib",
+    "ory-hydra-client == 1.11.8",
+    "pydantic[dotenv] < 2",
+    "redis",
+    "requests",
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["version"]
+
+[project.urls]
+source = "https://github.com/SAEON/odp-core"
+
+[tool.setuptools]
+packages = ["odp", "sadco"]
+
+[tool.setuptools.dynamic]
+version = { attr = "odp.version.VERSION" }
