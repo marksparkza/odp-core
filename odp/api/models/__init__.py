@@ -33,4 +33,4 @@ from .role import RoleModel, RoleModelIn
 from .schema import SchemaModel
 from .tag import TagInstanceModel, TagInstanceModelIn, TagModel
 from .user import UserModel, UserModelIn
-from .vocabulary import VocabularyDetailModel, VocabularyModel
+from .vocabulary import VocabularyModel
