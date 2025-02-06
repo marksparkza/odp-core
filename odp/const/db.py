@@ -62,6 +62,14 @@ class AuditCommand(DBEnum):
     delete = 'delete'
 
 
+class PackageCommand(DBEnum):
+    insert = 'insert'
+    update = 'update'
+    delete = 'delete'
+    submit = 'submit'
+    cancel = 'cancel'
+
+
 class IdentityCommand(DBEnum):
     # operations performed by the user
     signup = 'signup'

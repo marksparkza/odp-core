@@ -50,6 +50,7 @@ class ODPWebConfig(BaseConfig, AppConfigMixin):
         env_prefix = 'ODP_WEB_'
 
     ARCHIVE_ID: str
+    SCHEMA_ID: str
     THREDDS_URL: AnyHttpUrl  # proxy URL for the THREDDS server
 
 
