@@ -146,10 +146,10 @@ class ODPClient(ODPBaseClient):
             params: dict,
             headers: dict,
     ) -> requests.Response:
-        headers |= {
-            'Authorization': 'Bearer ' + self.token['access_token']
-        }
         for _ in range(2):
+            headers |= {
+                'Authorization': 'Bearer ' + self.token['access_token']
+            }
             response = requests.request(
                 method=method,
                 url=url,
