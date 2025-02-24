@@ -12,12 +12,10 @@
     "translations": [
         {
             "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-                "t9nObject": {
-                    "description": {},
-                    "descriptionType": {"t9nConst": "Abstract"}
-                }
+            "t9nTarget": "/descriptions/-",
+            "t9nObject": {
+                "description": {},
+                "descriptionType": {"t9nConst": "Abstract"}
             }
         }
     ]
