@@ -19,8 +19,6 @@ class PackageModel(BaseModel):
     resource_ids: list[str]
     schema_id: str
     schema_uri: str
-    metadata: Optional[dict]
-    validity: Optional[dict]
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
@@ -29,6 +27,8 @@ class PackageModel(BaseModel):
 class PackageDetailModel(PackageModel):
     resources: list[ResourceModel]
     tags: list[TagInstanceModel]
+    metadata: Optional[dict]
+    validity: Optional[dict]
 
 
 class PackageModelIn(BaseModel):
