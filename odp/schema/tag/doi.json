@@ -1,14 +1,21 @@
 {
-    "title": "Schema for a DOI tag",
     "$id": "https://odp.saeon.ac.za/schema/tag/doi",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Digital Object Identifier",
+    "description": "Schema for a DOI tag",
     "type": "object",
+    "required": ["doi"],
     "properties": {
         "doi": {
             "type": "string",
             "pattern": "^10\\.\\d{4,}(\\.\\d+)*/[-._;()/:a-zA-Z0-9]+$"
         }
     },
-    "required": ["doi"],
-    "additionalProperties": false
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "SAEON.DataCite4",
+            "t9nTarget": "/doi"
+        }
+    ]
 }

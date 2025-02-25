@@ -54,7 +54,7 @@
     "additionalProperties": false,
     "translations": [
         {
-            "t9nScheme": "saeon/datacite4",
+            "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/creators/-",
             "t9nCondition": {
                 "properties": {
@@ -71,7 +71,7 @@
             }
         },
         {
-            "t9nScheme": "saeon/datacite4",
+            "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/contributors/-",
             "t9nCondition": {
                 "properties": {

@@ -22,7 +22,7 @@
         "required": ["west", "south"],
         "translations": [
             {
-                "t9nScheme": "saeon/datacite4",
+                "t9nScheme": "SAEON.DataCite4",
                 "t9nTarget": "/geoLocations/-",
                 "t9nObject": {
                     "geoLocationPlace": {"t9nSource": "0/place"},
@@ -44,7 +44,7 @@
         },
         "translations": [
             {
-                "t9nScheme": "saeon/datacite4",
+                "t9nScheme": "SAEON.DataCite4",
                 "t9nTarget": "/geoLocations/-",
                 "t9nObject": {
                     "geoLocationPlace": {"t9nSource": "0/place"},

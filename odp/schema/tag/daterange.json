@@ -12,15 +12,11 @@
     "additionalProperties": false,
     "translations": [
         {
-            "t9nScheme": "saeon/datacite4",
+            "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/dates/-",
             "t9nObject": {
-                "geoLocationBox": {
-                    "t9nObject": {
-                        "date": {"t9nConcat": ["0/start", "0/end"], "t9nSep": "/"},
-                        "dateType": {"t9nConst": "Valid"}
-                    }
-                }
+                "date": {"t9nConcat": ["0/start", "0/end"], "t9nSep": "/"},
+                "dateType": {"t9nConst": "Valid"}
             }
         }
     ]
