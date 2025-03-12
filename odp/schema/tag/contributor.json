@@ -1,6 +1,6 @@
 {
     "$id": "https://odp.saeon.ac.za/schema/tag/contributor",
-    "$schema": "https://jschon.dev/meta/translation/schema",
+    "$schema": "https://odp.saeon.ac.za/schema/__meta__/schema",
     "title": "Contributor",
     "description": "Schema for a contributor tag",
     "type": "object",
@@ -63,9 +63,20 @@
             },
             "t9nObject": {
                 "name": {"t9nSource": "0/name"},
-                "affiliation": {
+                "nameType": {"t9nConst": "Personal"},
+                "nameIdentifiers": {
                     "t9nArray": {
-                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
+                        "t9nObject": {
+                            "nameIdentifier": {"t9nSource": "0/orcid"},
+                            "nameIdentifierScheme": {"t9nConst": "ORCID"},
+                            "schemeURI": {"t9nConst": "https://orcid.org"}
+                        }
+                    }
+                },
+                "affiliation": {
+                    "t9nSource": "0/affiliations",
+                    "t9nArray": {
+                        "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"
                     }
                 }
             }
@@ -79,12 +90,6 @@
                 }
             },
             "t9nObject": {
-                "name": {"t9nSource": "0/name"},
-                "affiliation": {
-                    "t9nArray": {
-                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
-                    }
-                },
                 "contributorType": {
                     "t9nSource": "0/role",
                     "t9nFilter": {
@@ -94,6 +99,23 @@
                         "pointOfContact": "ContactPerson",
                         "processor": "ProjectMember",
                         "resourceProvider": "HostingInstitution"
+                    }
+                },
+                "name": {"t9nSource": "0/name"},
+                "nameType": {"t9nConst": "Personal"},
+                "nameIdentifiers": {
+                    "t9nArray": {
+                        "t9nObject": {
+                            "nameIdentifier": {"t9nSource": "0/orcid"},
+                            "nameIdentifierScheme": {"t9nConst": "ORCID"},
+                            "schemeURI": {"t9nConst": "https://orcid.org"}
+                        }
+                    }
+                },
+                "affiliation": {
+                    "t9nSource": "0/affiliations",
+                    "t9nArray": {
+                        "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"
                     }
                 }
             }

@@ -8,9 +8,10 @@
     "$dynamicAnchor": "meta",
     "type": ["object", "boolean"],
     "properties": {
-        "vocabulary": {
-            "$comment": "An ODP vocabulary id. The keyword constrains an instance to the values allowed by the referenced vocabulary.",
-            "type": "string"
+        "t9nODPKeyword": {
+            "$comment": "Reference to an ODP keyword schema providing keyword data translation. Expects an ODP keyword ID as JSON instance.",
+            "type": "string",
+            "format": "uri-reference"
         }
     }
 }
