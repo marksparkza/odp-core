@@ -18,6 +18,14 @@
                 "date": {"t9nConcat": ["0/start", "0/end"], "t9nSep": "/"},
                 "dateType": {"t9nConst": "Valid"}
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/extent/temporalElement",
+            "t9nObject": {
+                "startTime": {"t9nSource": "0/start"},
+                "endTime": {"t9nSource": "0/end"}
+            }
         }
     ]
 }

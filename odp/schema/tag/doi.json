@@ -17,6 +17,11 @@
             "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/doi",
             "t9nSource": "0/doi"
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/doi",
+            "t9nSource": "0/doi"
         }
     ]
 }

@@ -18,6 +18,11 @@
                 "description": {},
                 "descriptionType": {"t9nConst": "Abstract"}
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/abstract",
+            "t9nSource": "0/abstract"
         }
     ]
 }

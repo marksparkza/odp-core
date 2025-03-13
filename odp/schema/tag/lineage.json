@@ -18,6 +18,11 @@
                 "description": {},
                 "descriptionType": {"t9nConst": "Methods"}
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/lineageStatement",
+            "t9nSource": "0/lineage"
         }
     ]
 }
