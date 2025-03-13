@@ -12,7 +12,8 @@
             "type": "string"
         },
         "orcid": {
-            "type": "string", "format": "orcid"
+            "type": "string",
+            "pattern": "^https://orcid.org/(\\d{4}-){3}\\d{3}(\\d|X)$"
         },
         "is_author": {
             "type": "boolean"
@@ -70,6 +71,9 @@
                             "nameIdentifier": {"t9nSource": "0/orcid"},
                             "nameIdentifierScheme": {"t9nConst": "ORCID"},
                             "schemeURI": {"t9nConst": "https://orcid.org"}
+                        },
+                        "t9nCondition": {
+                            "required": ["orcid"]
                         }
                     }
                 },
@@ -109,6 +113,9 @@
                             "nameIdentifier": {"t9nSource": "0/orcid"},
                             "nameIdentifierScheme": {"t9nConst": "ORCID"},
                             "schemeURI": {"t9nConst": "https://orcid.org"}
+                        },
+                        "t9nCondition": {
+                            "required": ["orcid"]
                         }
                     }
                 },

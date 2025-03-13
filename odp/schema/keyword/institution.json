@@ -28,9 +28,9 @@
             "t9nScheme": "SAEON.DataCite4",
             "t9nObject": {
                 "affiliation": {"t9nSource": "0/key"},
-                "affiliationIdentifier": {"t9nSource": "0/ror"},
-                "affiliationIdentifierScheme": {"t9nConst": "ROR"},
-                "schemeURI": {"t9nConst": "https://ror.org"}
+                "affiliationIdentifier": {"t9nSource": "0/ror", "t9nCondition": {"required": ["ror"]}},
+                "affiliationIdentifierScheme": {"t9nConst": "ROR", "t9nCondition": {"required": ["ror"]}},
+                "schemeURI": {"t9nConst": "https://ror.org", "t9nCondition": {"required": ["ror"]}}
             }
         }
     ]

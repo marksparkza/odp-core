@@ -17,6 +17,9 @@ SID_REGEX = r'^[-._;()/:a-zA-Z0-9]+$'
 # an ROR ID, from https://ror.readme.io/docs/identifier
 ROR_REGEX = r'^https://ror\.org/0[a-hj-km-np-tv-z|0-9]{6}[0-9]{2}$'
 
+# https://support.orcid.org/hc/en-us/articles/360006897674-Structure-of-the-ORCID-Identifier
+ORCID_REGEX = r'^https://orcid.org/(\d{4}-){3}\d{3}(\d|X)$'
+
 SAEON_EMAIL_DOMAINS = ['saeon.ac.za', 'saeon.nrf.ac.za']
 
 
