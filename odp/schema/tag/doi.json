@@ -15,7 +15,8 @@
     "translations": [
         {
             "t9nScheme": "SAEON.DataCite4",
-            "t9nTarget": "/doi"
+            "t9nTarget": "/doi",
+            "t9nSource": "0/doi"
         }
     ]
 }

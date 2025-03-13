@@ -13,6 +13,7 @@
         {
             "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/descriptions/-",
+            "t9nSource": "0/abstract",
             "t9nObject": {
                 "description": {},
                 "descriptionType": {"t9nConst": "Abstract"}
