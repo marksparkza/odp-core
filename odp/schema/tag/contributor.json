@@ -34,7 +34,7 @@
         "affiliations": {
             "$comment": "Array of institution keyword codes.",
             "type": "array",
-            "items": {"type": "integer", "odpKeyword": "Institution"}
+            "items": {"type": "integer", "odpKeywordId": "Institution"}
         }
     },
     "if": {
