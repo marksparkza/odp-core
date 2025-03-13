@@ -19,44 +19,41 @@
         }
     },
     "then": {
-        "required": ["west", "south"],
-        "translations": [
-            {
-                "t9nScheme": "SAEON.DataCite4",
-                "t9nTarget": "/geoLocations/-",
-                "t9nObject": {
-                    "geoLocationPlace": {"t9nSource": "0/place"},
-                    "geoLocationBox": {
-                        "t9nObject": {
-                            "westBoundLongitude": {"t9nSource": "0/west"},
-                            "eastBoundLongitude": {"t9nSource": "0/east"},
-                            "southBoundLatitude": {"t9nSource": "0/south"},
-                            "northBoundLatitude": {"t9nSource": "0/north"}
-                        }
-                    }
-                }
-            }
-        ]
+        "required": ["west", "south"]
     },
     "else": {
         "properties": {
             "west": false, "south": false
-        },
-        "translations": [
-            {
-                "t9nScheme": "SAEON.DataCite4",
-                "t9nTarget": "/geoLocations/-",
-                "t9nObject": {
-                    "geoLocationPlace": {"t9nSource": "0/place"},
-                    "geoLocationPoint": {
-                        "t9nObject": {
-                            "pointLongitude": {"t9nSource": "0/east"},
-                            "pointLatitude": {"t9nSource": "0/north"}
-                        }
+        }
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "SAEON.DataCite4",
+            "t9nTarget": "/geoLocations/-",
+            "t9nObject": {
+                "geoLocationPlace": {"t9nSource": "0/place"},
+                "geoLocationPoint": {
+                    "t9nCondition": {
+                        "properties": {"shape": {"const": "point"}}
+                    },
+                    "t9nObject": {
+                        "pointLongitude": {"t9nSource": "0/east"},
+                        "pointLatitude": {"t9nSource": "0/north"}
+                    }
+                },
+                "geoLocationBox": {
+                    "t9nCondition": {
+                        "properties": {"shape": {"const": "box"}}
+                    },
+                    "t9nObject": {
+                        "westBoundLongitude": {"t9nSource": "0/west"},
+                        "eastBoundLongitude": {"t9nSource": "0/east"},
+                        "southBoundLatitude": {"t9nSource": "0/south"},
+                        "northBoundLatitude": {"t9nSource": "0/north"}
                     }
                 }
             }
-        ]
-    },
-    "additionalProperties": false
+        }
+    ]
 }
