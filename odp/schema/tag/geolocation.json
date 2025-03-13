@@ -54,6 +54,42 @@
                     }
                 }
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/extent/geographicElements/-",
+            "t9nCondition": {
+                "properties": {"shape": {"const": "box"}}
+            },
+            "t9nObject": {
+                "geographicIdentifier": {"t9nSource": "0/place"},
+                "boundingBox": {
+                    "t9nObject": {
+                        "westBoundLongitude": {"t9nSource": "0/west"},
+                        "eastBoundLongitude": {"t9nSource": "0/east"},
+                        "southBoundLatitude": {"t9nSource": "0/south"},
+                        "northBoundLatitude": {"t9nSource": "0/north"}
+                    }
+                }
+            }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/extent/geographicElements/-",
+            "t9nCondition": {
+                "properties": {"shape": {"const": "point"}}
+            },
+            "t9nObject": {
+                "geographicIdentifier": {"t9nSource": "0/place"},
+                "boundingBox": {
+                    "t9nObject": {
+                        "westBoundLongitude": {"t9nSource": "0/east"},
+                        "eastBoundLongitude": {"t9nSource": "0/east"},
+                        "southBoundLatitude": {"t9nSource": "0/north"},
+                        "northBoundLatitude": {"t9nSource": "0/north"}
+                    }
+                }
+            }
         }
     ]
 }

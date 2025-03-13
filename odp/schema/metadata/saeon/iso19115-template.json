@@ -1,6 +1,8 @@
 {
     "responsibleParties": [],
-    "extent": {},
+    "extent": {
+        "geographicElements": []
+    },
     "languages": ["en"],
     "topicCategories": [],
     "distributionFormats": [],
