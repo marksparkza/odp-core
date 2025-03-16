@@ -35,23 +35,35 @@
             "$comment": "Array of institution keyword codes.",
             "type": "array",
             "items": {"type": "integer", "odpKeywordId": "Institution"}
+        },
+        "contact_info": {
+            "type": "string"
         }
     },
-    "if": {
-        "properties": {
-            "is_author": {"const": true}
+    "allOf": [
+        {
+            "if": {
+                "properties": {"is_author": {"const": true}}
+            },
+            "then": {
+                "properties": {"role": {"enum": ["principalInvestigator", "originator"]}}
+            },
+            "else": {
+                "properties": {"role": {"not": {"enum": ["principalInvestigator", "originator"]}}}
+            }
+        },
+        {
+            "if": {
+                "properties": {"role": {"const": "pointOfContact"}}
+            },
+            "then": {
+                "required": ["contact_info"]
+            },
+            "else": {
+                "properties": {"contact_info": false}
+            }
         }
-    },
-    "then": {
-        "properties": {
-            "role": {"enum": ["principalInvestigator", "originator"]}
-        }
-    },
-    "else": {
-        "properties": {
-            "role": {"not": {"enum": ["principalInvestigator", "originator"]}}
-        }
-    },
+    ],
     "additionalProperties": false,
     "translations": [
         {
