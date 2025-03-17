@@ -67,6 +67,16 @@
     "additionalProperties": false,
     "translations": [
         {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/responsibleParties/-",
+            "t9nObject": {
+                "individualName": {"t9nSource": "0/name"},
+                "organizationName": {"t9nSource": "0/affiliations/0", "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"},
+                "role": {"t9nSource": "0/role"},
+                "contactInfo": {"t9nSource": "0/contact_info", "t9nCondition": {"properties": {"role": {"const": "pointOfContact"}}}}
+            }
+        },
+        {
             "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/creators/-",
             "t9nCondition": {

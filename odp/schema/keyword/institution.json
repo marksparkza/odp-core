@@ -32,6 +32,10 @@
                 "affiliationIdentifierScheme": {"t9nConst": "ROR", "t9nCondition": {"required": ["ror"]}},
                 "schemeURI": {"t9nConst": "https://ror.org", "t9nCondition": {"required": ["ror"]}}
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nSource": "0/key"
         }
     ]
 }
