@@ -11,7 +11,6 @@ from odp.const.db import PackageStatus
 class PackageModel(BaseModel):
     id: str
     key: str
-    title: str
     status: PackageStatus
     timestamp: str
     provider_id: str
@@ -32,7 +31,6 @@ class PackageDetailModel(PackageModel):
 
 
 class PackageModelIn(BaseModel):
-    title: str
     provider_id: str
     schema_id: str
 
