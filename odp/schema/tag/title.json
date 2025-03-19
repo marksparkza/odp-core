@@ -1,0 +1,27 @@
+{
+    "$id": "https://odp.saeon.ac.za/schema/tag/title",
+    "$schema": "https://jschon.dev/meta/translation/schema",
+    "title": "Title",
+    "description": "Schema for a title tag.",
+    "type": "object",
+    "required": ["title"],
+    "properties": {
+        "title": {"type": "string"}
+    },
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "SAEON.DataCite4",
+            "t9nTarget": "/titles/-",
+            "t9nSource": "0/title",
+            "t9nObject": {
+                "title": {}
+            }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/title",
+            "t9nSource": "0/title"
+        }
+    ]
+}

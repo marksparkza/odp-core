@@ -33,6 +33,7 @@ class ODPSystemRole(str, Enum):
 
 class ODPPackageTag(str, Enum):
     DOI = 'Package.DOI'
+    TITLE = 'Package.Title'
     CONTRIBUTOR = 'Package.Contributor'
     GEOLOCATION = 'Package.GeoLocation'
     DATERANGE = 'Package.DateRange'
@@ -70,6 +71,7 @@ class ODPMetadataSchema(str, Enum):
 
 class ODPTagSchema(str, Enum):
     DOI = 'Tag.DOI'
+    TITLE = 'Tag.Title'
     GENERIC = 'Tag.Generic'
     KEYWORD = 'Tag.Keyword'
     CONTRIBUTOR = 'Tag.Contributor'

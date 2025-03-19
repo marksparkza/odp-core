@@ -21,11 +21,11 @@ class PackageModel(BaseModel):
     record_id: Optional[str]
     record_doi: Optional[str]
     record_sid: Optional[str]
+    resources: list[ResourceModel]
+    tags: list[TagInstanceModel]
 
 
 class PackageDetailModel(PackageModel):
-    resources: list[ResourceModel]
-    tags: list[TagInstanceModel]
     metadata: Optional[dict]
     validity: Optional[dict]
 
