@@ -7,8 +7,7 @@ class DBEnum(str, Enum):
 
 
 class ArchiveAdapter(DBEnum):
-    filesystem = 'filesystem'
-    nextcloud = 'nextcloud'
+    filestore = 'filestore'
     website = 'website'
 
 
