@@ -7,8 +7,7 @@ class DBEnum(str, Enum):
 
 
 class ArchiveAdapter(DBEnum):
-    filesystem = 'filesystem'
-    nextcloud = 'nextcloud'
+    filestore = 'filestore'
     website = 'website'
 
 
@@ -60,6 +59,14 @@ class AuditCommand(DBEnum):
     insert = 'insert'
     update = 'update'
     delete = 'delete'
+
+
+class PackageCommand(DBEnum):
+    insert = 'insert'
+    update = 'update'
+    delete = 'delete'
+    submit = 'submit'
+    cancel = 'cancel'
 
 
 class IdentityCommand(DBEnum):

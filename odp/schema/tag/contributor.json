@@ -1,6 +1,6 @@
 {
     "$id": "https://odp.saeon.ac.za/schema/tag/contributor",
-    "$schema": "https://jschon.dev/meta/translation/schema",
+    "$schema": "https://odp.saeon.ac.za/schema/__meta__/schema",
     "title": "Contributor",
     "description": "Schema for a contributor tag",
     "type": "object",
@@ -12,7 +12,8 @@
             "type": "string"
         },
         "orcid": {
-            "type": "string", "format": "orcid"
+            "type": "string",
+            "pattern": "^https://orcid.org/(\\d{4}-){3}\\d{3}(\\d|X)$"
         },
         "is_author": {
             "type": "boolean"
@@ -33,28 +34,50 @@
         "affiliations": {
             "$comment": "Array of institution keyword codes.",
             "type": "array",
-            "items": {"type": "integer", "odpKeyword": "Institution"}
+            "items": {"type": "integer", "odpKeywordId": "Institution"}
+        },
+        "contact_info": {
+            "type": "string"
         }
     },
-    "if": {
-        "properties": {
-            "is_author": {"const": true}
+    "allOf": [
+        {
+            "if": {
+                "properties": {"is_author": {"const": true}}
+            },
+            "then": {
+                "properties": {"role": {"enum": ["principalInvestigator", "originator"]}}
+            },
+            "else": {
+                "properties": {"role": {"not": {"enum": ["principalInvestigator", "originator"]}}}
+            }
+        },
+        {
+            "if": {
+                "properties": {"role": {"const": "pointOfContact"}}
+            },
+            "then": {
+                "required": ["contact_info"]
+            },
+            "else": {
+                "properties": {"contact_info": false}
+            }
         }
-    },
-    "then": {
-        "properties": {
-            "role": {"enum": ["principalInvestigator", "originator"]}
-        }
-    },
-    "else": {
-        "properties": {
-            "role": {"not": {"enum": ["principalInvestigator", "originator"]}}
-        }
-    },
+    ],
     "additionalProperties": false,
     "translations": [
         {
-            "t9nScheme": "saeon/datacite4",
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/responsibleParties/-",
+            "t9nObject": {
+                "individualName": {"t9nSource": "0/name"},
+                "organizationName": {"t9nSource": "0/affiliations/0", "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"},
+                "role": {"t9nSource": "0/role"},
+                "contactInfo": {"t9nSource": "0/contact_info", "t9nCondition": {"properties": {"role": {"const": "pointOfContact"}}}}
+            }
+        },
+        {
+            "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/creators/-",
             "t9nCondition": {
                 "properties": {
@@ -63,15 +86,29 @@
             },
             "t9nObject": {
                 "name": {"t9nSource": "0/name"},
-                "affiliation": {
+                "nameType": {"t9nConst": "Personal"},
+                "nameIdentifiers": {
                     "t9nArray": {
-                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
+                        "t9nObject": {
+                            "nameIdentifier": {"t9nSource": "0/orcid"},
+                            "nameIdentifierScheme": {"t9nConst": "ORCID"},
+                            "schemeURI": {"t9nConst": "https://orcid.org"}
+                        },
+                        "t9nCondition": {
+                            "required": ["orcid"]
+                        }
+                    }
+                },
+                "affiliation": {
+                    "t9nSource": "0/affiliations",
+                    "t9nArray": {
+                        "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"
                     }
                 }
             }
         },
         {
-            "t9nScheme": "saeon/datacite4",
+            "t9nScheme": "SAEON.DataCite4",
             "t9nTarget": "/contributors/-",
             "t9nCondition": {
                 "properties": {
@@ -79,12 +116,6 @@
                 }
             },
             "t9nObject": {
-                "name": {"t9nSource": "0/name"},
-                "affiliation": {
-                    "t9nArray": {
-                        "$ref": "https://odp.saeon.ac.za/schema/keyword/institution"
-                    }
-                },
                 "contributorType": {
                     "t9nSource": "0/role",
                     "t9nFilter": {
@@ -94,6 +125,26 @@
                         "pointOfContact": "ContactPerson",
                         "processor": "ProjectMember",
                         "resourceProvider": "HostingInstitution"
+                    }
+                },
+                "name": {"t9nSource": "0/name"},
+                "nameType": {"t9nConst": "Personal"},
+                "nameIdentifiers": {
+                    "t9nArray": {
+                        "t9nObject": {
+                            "nameIdentifier": {"t9nSource": "0/orcid"},
+                            "nameIdentifierScheme": {"t9nConst": "ORCID"},
+                            "schemeURI": {"t9nConst": "https://orcid.org"}
+                        },
+                        "t9nCondition": {
+                            "required": ["orcid"]
+                        }
+                    }
+                },
+                "affiliation": {
+                    "t9nSource": "0/affiliations",
+                    "t9nArray": {
+                        "t9nODPKeyword": "https://odp.saeon.ac.za/schema/keyword/institution"
                     }
                 }
             }

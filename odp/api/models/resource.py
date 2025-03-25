@@ -18,4 +18,5 @@ class ResourceModel(BaseModel):
     timestamp: str
     package_id: str
     package_key: str
+    package_path: str
     archive_paths: dict[str, str] = Field(..., title='Mapping of archive id to resource path relative to archive url(s)')

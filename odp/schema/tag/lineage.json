@@ -11,14 +11,18 @@
     "additionalProperties": false,
     "translations": [
         {
-            "t9nScheme": "saeon/datacite4",
-            "t9nTarget": "/descriptions",
-            "t9nArray": {
-                "t9nObject": {
-                    "description": {},
-                    "descriptionType": {"t9nConst": "Methods"}
-                }
+            "t9nScheme": "SAEON.DataCite4",
+            "t9nTarget": "/descriptions/-",
+            "t9nSource": "0/lineage",
+            "t9nObject": {
+                "description": {},
+                "descriptionType": {"t9nConst": "Methods"}
             }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nTarget": "/lineageStatement",
+            "t9nSource": "0/lineage"
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "$id": "https://odp.saeon.ac.za/schema/keyword/institution",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://jschon.dev/meta/translation/schema",
     "title": "Institution",
     "description": "Schema for a term in the institution vocabulary",
     "type": "object",
@@ -22,5 +22,20 @@
             "description": "Research Organization Registry (ROR) identifier"
         }
     },
-    "additionalProperties": false
+    "additionalProperties": false,
+    "translations": [
+        {
+            "t9nScheme": "SAEON.DataCite4",
+            "t9nObject": {
+                "affiliation": {"t9nSource": "0/key"},
+                "affiliationIdentifier": {"t9nSource": "0/ror", "t9nCondition": {"required": ["ror"]}},
+                "affiliationIdentifierScheme": {"t9nConst": "ROR", "t9nCondition": {"required": ["ror"]}},
+                "schemeURI": {"t9nConst": "https://ror.org", "t9nCondition": {"required": ["ror"]}}
+            }
+        },
+        {
+            "t9nScheme": "SAEON.ISO19115",
+            "t9nSource": "0/key"
+        }
+    ]
 }
