@@ -25,6 +25,14 @@ class PackageStatus(DBEnum):
     deleted = 'deleted'
 
 
+class ResourceStatus(DBEnum):
+    pending = 'pending'
+    valid = 'valid'
+    missing = 'missing'
+    corrupt = 'corrupt'
+    delete_pending = 'delete_pending'
+
+
 class HashAlgorithm(DBEnum):
     md5 = 'md5'
     sha256 = 'sha256'
