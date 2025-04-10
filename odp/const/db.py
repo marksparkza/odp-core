@@ -6,7 +6,7 @@ class DBEnum(str, Enum):
         return repr(self.value)
 
 
-class ArchiveAdapter(DBEnum):
+class ArchiveType(DBEnum):
     filestore = 'filestore'
     website = 'website'
 
