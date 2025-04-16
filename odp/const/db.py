@@ -26,11 +26,15 @@ class PackageStatus(DBEnum):
 
 
 class ResourceStatus(DBEnum):
+    active = 'active'
+    delete_pending = 'delete_pending'
+
+
+class ArchiveResourceStatus(DBEnum):
     pending = 'pending'
     valid = 'valid'
     missing = 'missing'
     corrupt = 'corrupt'
-    delete_pending = 'delete_pending'
 
 
 class HashAlgorithm(DBEnum):
