@@ -31,8 +31,8 @@ dynamic = ["version"]
 [project.urls]
 source = "https://github.com/SAEON/odp-core"
 
-[tool.setuptools]
-packages = ["odp", "sadco"]
+[tool.setuptools.packages.find]
+where = ["."]
 
 [tool.setuptools.dynamic]
 version = { attr = "odp.version.VERSION" }
