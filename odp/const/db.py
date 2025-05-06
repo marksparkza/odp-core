@@ -19,10 +19,11 @@ class KeywordStatus(DBEnum):
 
 
 class PackageStatus(DBEnum):
-    pending = 'pending'
+    editing = 'editing'
     submitted = 'submitted'
+    in_review = 'in_review'
     archived = 'archived'
-    deleted = 'deleted'
+    delete_pending = 'delete_pending'
 
 
 class ResourceStatus(DBEnum):
